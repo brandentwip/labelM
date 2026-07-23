@@ -79,61 +79,55 @@
             {% if section.settings.enable_offer_banner
               and section.settings.layout_type == 'grid'
               and paginate.current_page == 1
-              and forloop.index == section.settings.offer_banner_position
+              and forloop.index == section.settings.offer_banner_1_position
             %}
-              <li
-                class="product-grid__item collection-offer-banner"
-                data-page="{{ paginate.current_page }}"
-                ref="cards[]"
-                style="
-                  --collection-offer-banner-columns: {{ section.settings.offer_banner_columns }};
-                  --collection-offer-banner-background: {{ section.settings.offer_banner_background }};
-                  --collection-offer-banner-text: {{ section.settings.offer_banner_text_color }};
-                "
-              >
-                {% if section.settings.offer_banner_link != blank %}
-                  <a
-                    class="collection-offer-banner__inner"
-                    href="{{ section.settings.offer_banner_link }}"
-                  >
-                {% else %}
-                  <div class="collection-offer-banner__inner">
-                {% endif %}
-                  <div class="collection-offer-banner__content">
-                    {% if section.settings.offer_banner_heading != blank %}
-                      <h2 class="collection-offer-banner__heading">{{ section.settings.offer_banner_heading }}</h2>
-                    {% endif %}
+              {% render 'collection-offer-banner',
+                index: 1,
+                columns: section.settings.offer_banner_1_columns,
+                image: section.settings.offer_banner_1_image,
+                heading: section.settings.offer_banner_1_heading,
+                text: section.settings.offer_banner_1_text,
+                button_label: section.settings.offer_banner_1_button_label,
+                link: section.settings.offer_banner_1_link,
+                background: section.settings.offer_banner_1_background,
+                text_color: section.settings.offer_banner_1_text_color
+              %}
+            {% endif %}
 
-                    {% if section.settings.offer_banner_text != blank %}
-                      <div class="collection-offer-banner__text">
-                        {{ section.settings.offer_banner_text }}
-                      </div>
-                    {% endif %}
+            {% if section.settings.enable_offer_banner_2
+              and section.settings.layout_type == 'grid'
+              and paginate.current_page == 1
+              and forloop.index == section.settings.offer_banner_2_position
+            %}
+              {% render 'collection-offer-banner',
+                index: 2,
+                columns: section.settings.offer_banner_2_columns,
+                image: section.settings.offer_banner_2_image,
+                heading: section.settings.offer_banner_2_heading,
+                text: section.settings.offer_banner_2_text,
+                button_label: section.settings.offer_banner_2_button_label,
+                link: section.settings.offer_banner_2_link,
+                background: section.settings.offer_banner_2_background,
+                text_color: section.settings.offer_banner_2_text_color
+              %}
+            {% endif %}
 
-                    {% if section.settings.offer_banner_button_label != blank %}
-                      <span class="collection-offer-banner__button">
-                        {{ section.settings.offer_banner_button_label }}
-                      </span>
-                    {% endif %}
-                  </div>
-
-                  {% if section.settings.offer_banner_image != blank %}
-                    {{
-                      section.settings.offer_banner_image
-                      | image_url: width: 1400
-                      | image_tag:
-                        class: 'collection-offer-banner__image',
-                        widths: '375, 550, 750, 950, 1100, 1400',
-                        sizes: '(min-width: 750px) 50vw, 100vw',
-                        loading: 'lazy'
-                    }}
-                  {% endif %}
-                {% if section.settings.offer_banner_link != blank %}
-                  </a>
-                {% else %}
-                  </div>
-                {% endif %}
-              </li>
+            {% if section.settings.enable_offer_banner_3
+              and section.settings.layout_type == 'grid'
+              and paginate.current_page == 1
+              and forloop.index == section.settings.offer_banner_3_position
+            %}
+              {% render 'collection-offer-banner',
+                index: 3,
+                columns: section.settings.offer_banner_3_columns,
+                image: section.settings.offer_banner_3_image,
+                heading: section.settings.offer_banner_3_heading,
+                text: section.settings.offer_banner_3_text,
+                button_label: section.settings.offer_banner_3_button_label,
+                link: section.settings.offer_banner_3_link,
+                background: section.settings.offer_banner_3_background,
+                text_color: section.settings.offer_banner_3_text_color
+              %}
             {% endif %}
           {% endfor %}
         {% endcapture %}
@@ -374,19 +368,19 @@
     },
     {
       "type": "header",
-      "content": "In-grid offer banner"
+      "content": "In-grid offer banners"
     },
     {
       "type": "checkbox",
       "id": "enable_offer_banner",
-      "label": "Show offer banner",
+      "label": "Show banner 1",
       "default": true,
       "visible_if": "{{ section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "range",
-      "id": "offer_banner_position",
-      "label": "Show after product",
+      "id": "offer_banner_1_position",
+      "label": "Banner 1: show after product",
       "min": 1,
       "max": 24,
       "step": 1,
@@ -395,8 +389,8 @@
     },
     {
       "type": "range",
-      "id": "offer_banner_columns",
-      "label": "Desktop columns",
+      "id": "offer_banner_1_columns",
+      "label": "Banner 1: desktop columns",
       "min": 1,
       "max": 4,
       "step": 1,
@@ -405,50 +399,198 @@
     },
     {
       "type": "image_picker",
-      "id": "offer_banner_image",
-      "label": "Image",
+      "id": "offer_banner_1_image",
+      "label": "Banner 1: image",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "text",
-      "id": "offer_banner_heading",
-      "label": "Heading",
+      "id": "offer_banner_1_heading",
+      "label": "Banner 1: heading",
       "default": "Free Summer Travel Set",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "richtext",
-      "id": "offer_banner_text",
-      "label": "Text",
+      "id": "offer_banner_1_text",
+      "label": "Banner 1: text",
       "default": "<p>3-piece gift with your $100+ purchase.<br>Use code SHINE</p>",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "text",
-      "id": "offer_banner_button_label",
-      "label": "Button label",
+      "id": "offer_banner_1_button_label",
+      "label": "Banner 1: button label",
       "default": "*See offer details",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "url",
-      "id": "offer_banner_link",
-      "label": "Link",
+      "id": "offer_banner_1_link",
+      "label": "Banner 1: link",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "color",
-      "id": "offer_banner_background",
-      "label": "Background",
+      "id": "offer_banner_1_background",
+      "label": "Banner 1: background",
       "default": "#b8e3ed",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "color",
-      "id": "offer_banner_text_color",
-      "label": "Text",
+      "id": "offer_banner_1_text_color",
+      "label": "Banner 1: text",
       "default": "#000000",
       "visible_if": "{{ section.settings.enable_offer_banner and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_offer_banner_2",
+      "label": "Show banner 2",
+      "default": true,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "offer_banner_2_position",
+      "label": "Banner 2: show after product",
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "offer_banner_2_columns",
+      "label": "Banner 2: desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "offer_banner_2_image",
+      "label": "Banner 2: image",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "text",
+      "id": "offer_banner_2_heading",
+      "label": "Banner 2: heading",
+      "default": "Bundle and save",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "richtext",
+      "id": "offer_banner_2_text",
+      "label": "Banner 2: text",
+      "default": "<p>Stock up on your routine favorites.</p>",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "text",
+      "id": "offer_banner_2_button_label",
+      "label": "Banner 2: button label",
+      "default": "Shop sets",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "url",
+      "id": "offer_banner_2_link",
+      "label": "Banner 2: link",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "color",
+      "id": "offer_banner_2_background",
+      "label": "Banner 2: background",
+      "default": "#f1e3d0",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "color",
+      "id": "offer_banner_2_text_color",
+      "label": "Banner 2: text",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.enable_offer_banner_2 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_offer_banner_3",
+      "label": "Show banner 3",
+      "default": true,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "offer_banner_3_position",
+      "label": "Banner 3: show after product",
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "default": 20,
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "offer_banner_3_columns",
+      "label": "Banner 3: desktop columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2,
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "offer_banner_3_image",
+      "label": "Banner 3: image",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "text",
+      "id": "offer_banner_3_heading",
+      "label": "Banner 3: heading",
+      "default": "Complete your routine",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "richtext",
+      "id": "offer_banner_3_text",
+      "label": "Banner 3: text",
+      "default": "<p>Discover treatments made for your hair goals.</p>",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "text",
+      "id": "offer_banner_3_button_label",
+      "label": "Banner 3: button label",
+      "default": "Learn more",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "url",
+      "id": "offer_banner_3_link",
+      "label": "Banner 3: link",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "color",
+      "id": "offer_banner_3_background",
+      "label": "Banner 3: background",
+      "default": "#d8e7df",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "color",
+      "id": "offer_banner_3_text_color",
+      "label": "Banner 3: text",
+      "default": "#000000",
+      "visible_if": "{{ section.settings.enable_offer_banner_3 and section.settings.layout_type == 'grid' }}"
     },
     {
       "type": "header",
