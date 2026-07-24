@@ -59,20 +59,14 @@
         "padding-block-end": 80
       }
     },
-    "custom_liquid_HqJhWR": {
-      "type": "custom-liquid",
-      "name": "t:names.custom_liquid",
-      "settings": {
-        "custom_liquid": "",
-        "background_color": "",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
+    "salon_finder_3BNAJK": {
+      "type": "salon-finder",
+      "name": "Salon Finder",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "custom_liquid_HqJhWR"
+    "salon_finder_3BNAJK"
   ]
 }
