@@ -181,11 +181,74 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "1784890530170d540a": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_2588398_kV4taT": {
+          "type": "ai_gen_block_2588398",
+          "settings": {
+            "desktop_width_percent": 100,
+            "section_padding_horizontal": 40,
+            "section_padding_top": 40,
+            "section_padding_bottom": 40,
+            "item_spacing": 20,
+            "text_spacing": 12,
+            "background_color": "#ffffff",
+            "text_color": "#000000",
+            "image_border_radius": 0,
+            "text_size": 14,
+            "image_1": "shopify://shop_images/Asset-1.png",
+            "text_1": "PERSONALISED HAIRCARE",
+            "image_2": "shopify://shop_images/Asset-3.png",
+            "text_2": "BIOCOMPATIBLE",
+            "image_3": "shopify://shop_images/Asset-2.png",
+            "text_3": "SUSTAINABLE",
+            "image_4": "shopify://shop_images/Asset-4.png",
+            "text_4": "HIGH EFFICIENCY",
+            "image_5": "shopify://shop_images/Asset-5.png",
+            "text_5": "GLOBALLY CELEBRATED"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_2588398_kV4taT"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "main",
     "hero_A6VDwT",
-    "custom_liquid_DhyNrB"
+    "custom_liquid_DhyNrB",
+    "1784890530170d540a"
   ]
 }
