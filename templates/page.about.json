@@ -243,12 +243,209 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "custom_liquid_PFeMwX": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "{%- comment -%}\n  Video (left) / Padded Image (right) split section\n  Fully scoped: every selector lives under .viw-wrap-{{ section.id }}\n  so it cannot leak out and affect the rest of the theme.\n\n  TO USE YOUR OWN MEDIA:\n  - Video: replace the <source src=\"...\"> URL below with your video file URL.\n  - Image: replace the <img src=\"...\"> URL below with your image URL.\n{%- endcomment -%}\n\n<div class=\"viw-wrap-{{ section.id }}\">\n  <section class=\"viw-section\">\n\n    <div class=\"viw-video\">\n      <video class=\"viw-video-el\" autoplay muted loop playsinline>\n        <source src=\"https://cdn.shopify.com/videos/c/o/v/c167ea87d3394f89be3978b1ede01e4b.mp4\" type=\"video/mp4\">\n      </video>\n      <div class=\"viw-video-fallback\"></div>\n    </div>\n\n    <div class=\"viw-image-col\">\n      <div class=\"viw-image-frame\">\n        <img class=\"viw-image\" src=\"https://cdn.shopify.com/s/files/1/0992/8006/0736/files/030a2144e6f64b0c290240eb2995ff7717d9703e___media_library_original_1254_705.png?v=1784807064\" alt=\"\">\n      </div>\n    </div>\n\n  </section>\n</div>\n\n<style>\n  .viw-wrap-{{ section.id }} {\n    --viw-paper: #ffffff;\n    --viw-frame-bg: #f4f2ee;\n    display: block;\n    width: 100%;\n    max-width: 100%;\n    overflow-x: hidden;\n    box-sizing: border-box;\n  }\n\n  .viw-wrap-{{ section.id }} .viw-section,\n  .viw-wrap-{{ section.id }} .viw-section * {\n    box-sizing: border-box;\n  }\n\n  .viw-wrap-{{ section.id }} .viw-section {\n    display: flex;\n    align-items: stretch;\n    width: 100%;\n    max-width: 100%;\n    min-height: 560px;\n    background: var(--viw-paper);\n    overflow: hidden;\n  }\n\n  /* ---- Video (left, edge to edge) ---- */\n  .viw-wrap-{{ section.id }} .viw-video {\n    position: relative;\n    flex: 0 0 50%;\n    max-width: 50%;\n    min-width: 0;\n    background: #efece6;\n    overflow: hidden;\n  }\n\n  .viw-wrap-{{ section.id }} .viw-video-el,\n  .viw-wrap-{{ section.id }} .viw-video-fallback {\n    position: absolute;\n    inset: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    display: block;\n    margin: 0;\n  }\n\n  .viw-wrap-{{ section.id }} .viw-video-el { z-index: 1; }\n\n  .viw-wrap-{{ section.id }} .viw-video-fallback {\n    z-index: 0;\n    background:\n      radial-gradient(ellipse 60% 45% at 50% 8%, #d8c9a3 0%, transparent 60%),\n      linear-gradient(180deg, #f2efe9 0%, #e7e0d2 45%, #17140f 100%);\n  }\n\n  /* ---- Image (right, padded / inset) ---- */\n  .viw-wrap-{{ section.id }} .viw-image-col {\n    flex: 1 1 auto;\n    min-width: 0;\n    display: flex;\n    align-items: stretch;\n    background: var(--viw-frame-bg);\n  }\n\n  .viw-wrap-{{ section.id }} .viw-image-frame {\n    width: 100%;\n    padding: 48px;\n    display: flex;\n  }\n\n  .viw-wrap-{{ section.id }} .viw-image {\n    width: 100%;\n    height: 100%;\n    object-fit: contain;\n    display: block;\n    border-radius: 4px;\n  }\n\n  @media (max-width: 900px) {\n    .viw-wrap-{{ section.id }} .viw-section {\n      flex-direction: column;\n      min-height: 0;\n    }\n    .viw-wrap-{{ section.id }} .viw-video {\n      max-width: 100%;\n      flex-basis: auto;\n      height: 60vh;\n    }\n    .viw-wrap-{{ section.id }} .viw-image-col {\n      max-width: 100%;\n      flex-basis: auto;\n    }\n    .viw-wrap-{{ section.id }} .viw-image-frame {\n      padding: 24px;\n    }\n    .viw-wrap-{{ section.id }} .viw-image {\n      height: 320px;\n    }\n  }\n</style>",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "hero_mBmfXM": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/ae3c9880457bbcb4c87c625ff1ff7ba6a1a76bbc___media_library_original_2560_240.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 35,
+        "section_width": "page-width",
+        "section_height": "auto",
+        "section_height_custom": 50,
+        "background_color": "",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 4
+      }
+    },
+    "section_iLFcWG": {
+      "type": "section",
+      "blocks": {
+        "text_WeAYCr": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>We make things that work better and last longer. Our products solve real problems with clean design and honest materials.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_WeAYCr"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 21,
+        "padding-block-end": 43
+      }
+    },
+    "hero_B6ejUk": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/a80baa92f5deeead060f304452154aeb9cb559c7___media_library_original_1049_389-e1770273116468.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 35,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "background_color": "",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "1784891865c2ec2e06": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_a986f36_96txjy": {
+          "type": "ai_gen_block_a986f36",
+          "settings": {
+            "desktop_width_percent": 100,
+            "max_width": 1200,
+            "border_radius": 0,
+            "padding_top": 40,
+            "padding_bottom": 40,
+            "background_color": "#ffffff"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a986f36_96txjy"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "main",
     "hero_A6VDwT",
     "custom_liquid_DhyNrB",
-    "1784890530170d540a"
+    "1784890530170d540a",
+    "custom_liquid_PFeMwX",
+    "hero_mBmfXM",
+    "section_iLFcWG",
+    "hero_B6ejUk",
+    "1784891865c2ec2e06"
   ]
 }
