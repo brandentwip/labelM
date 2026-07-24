@@ -394,7 +394,8 @@
         "ai_gen_block_a986f36_96txjy": {
           "type": "ai_gen_block_a986f36",
           "settings": {
-            "desktop_width_percent": 100,
+            "image": "shopify://shop_images/aab7b09cd3eef3b8039fd5551260f0ffc2070ab0___media_library_original_1499_585.png",
+            "desktop_width_percent": 90,
             "max_width": 1200,
             "border_radius": 0,
             "padding_top": 40,
