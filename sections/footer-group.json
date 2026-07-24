@@ -40,7 +40,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "main-menu",
-            "heading": "",
+            "heading": "Quick links",
             "menu_spacing": 12,
             "show_as_accordion": false,
             "accordion_icon": "caret",
@@ -61,7 +61,7 @@
           "name": "t:names.menu",
           "settings": {
             "menu": "main-menu",
-            "heading": "",
+            "heading": "Policies",
             "menu_spacing": 12,
             "show_as_accordion": false,
             "accordion_icon": "caret",
