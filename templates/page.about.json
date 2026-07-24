@@ -1,1 +1,191 @@
-{"sections":{"main":{"type":"main-page","blocks":{"heading":{"type":"text","name":"Title","settings":{"text":"<h1>{{ closest.page.title }}<\/h1>","width":"100%","max_width":"normal","alignment":"left","type_preset":"h2","font":"var(--font-primary--family)","line_height":"normal","letter_spacing":"normal","case":"none","wrap":"pretty","background":false,"background_color":"#00000026","corner_radius":0,"padding-block-start":0,"padding-block-end":0,"padding-inline-start":0,"padding-inline-end":0},"blocks":{}},"page-content":{"type":"page-content","settings":{},"blocks":{}}},"block_order":["heading","page-content"],"settings":{"content_direction":"column","gap":32,"background_color":"{{ settings.color_palette.background }}","padding-block-start":40,"padding-block-end":80}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "name": "Title",
+          "settings": {
+            "text": "<h1>{{ closest.page.title }}</h1>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h2",
+            "font": "var(--font-primary--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "page-content": {
+          "type": "page-content",
+          "settings": {
+            "text_color": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "page-content"
+      ],
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "hero_A6VDwT": {
+      "type": "hero",
+      "blocks": {
+        "text_tXXHUz": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>About Us</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_LtChfM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 32,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "button_nfYNba": {
+          "type": "button",
+          "name": "t:names.button",
+          "disabled": true,
+          "settings": {
+            "label": "Shop now",
+            "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_tXXHUz",
+        "text_LtChfM",
+        "button_nfYNba"
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/About-us-background-copy.jpg",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "large",
+        "section_height_custom": 50,
+        "background_color": "",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "custom_liquid_DhyNrB": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "{%- comment -%}\n  Empowering You — bold headline (left) / paragraph copy (right) split\n  Fully scoped: every selector lives under .etx-wrap-{{ section.id }}\n  so it cannot leak out and affect the rest of the theme.\n{%- endcomment -%}\n\n<div class=\"etx-wrap-{{ section.id }}\">\n  <section class=\"etx-section\">\n\n    <div class=\"etx-heading-col\">\n      <h2 class=\"etx-heading\">Empowering <br> You Unapologetically <br> You</h2>\n    </div>\n\n    <div class=\"etx-text-col\">\n      <p class=\"etx-copy\">Label.M isn't just haircare, it's a breakthrough for your hair. Our high-performance products are designed to understand and flatter the unique characteristics of Indian hair, from texture to density. Unleash your hair's hidden potential and experience the Label.M difference — it's all about you and your best hair ever.</p>\n    </div>\n\n  </section>\n</div>\n\n<style>\n  .etx-wrap-{{ section.id }} {\n    --etx-ink: #000000;\n    --etx-copy: #8c8c8c;\n    --etx-paper: #ffffff;\n    display: block;\n    width: 100%;\n    max-width: 100%;\n    overflow-x: hidden;\n    box-sizing: border-box;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-section,\n  .etx-wrap-{{ section.id }} .etx-section * {\n    box-sizing: border-box;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-section {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    max-width: 100%;\n    background: var(--etx-paper);\n    padding: 64px 56px;\n    gap: 48px;\n    overflow: hidden;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-heading-col {\n    flex: 0 0 56%;\n    max-width: 56%;\n    min-width: 0;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-heading {\n    margin: 0;\n    padding: 0;\n    text-align: right;\n    text-transform: uppercase;\n    font-weight: 800;\n    font-style: normal;\n    font-stretch: condensed;\n    letter-spacing: -0.01em;\n    line-height: 0.98;\n    color: var(--etx-ink);\n    font-size: clamp(28px, 4.6vw, 58px);\n    word-break: normal !important;\n    overflow-wrap: normal !important;\n    hyphens: none !important;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-text-col {\n    flex: 1 1 auto;\n    min-width: 0;\n    max-width: 480px;\n  }\n\n  .etx-wrap-{{ section.id }} .etx-copy {\n    margin: 0;\n    padding: 0;\n    font-size: 18px;\n    line-height: 1.6;\n    color: var(--etx-copy);\n    word-break: normal !important;\n    overflow-wrap: normal !important;\n    hyphens: none !important;\n  }\n\n  @media (max-width: 900px) {\n    .etx-wrap-{{ section.id }} .etx-section {\n      flex-direction: column;\n      align-items: flex-start;\n      padding: 40px 24px;\n      gap: 24px;\n    }\n    .etx-wrap-{{ section.id }} .etx-heading-col,\n    .etx-wrap-{{ section.id }} .etx-text-col {\n      max-width: 100%;\n      flex: 0 0 auto;\n    }\n    .etx-wrap-{{ section.id }} .etx-heading {\n      text-align: left;\n      font-size: 34px;\n    }\n    .etx-wrap-{{ section.id }} .etx-copy {\n      font-size: 16px;\n    }\n  }\n</style>",
+        "background_color": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_A6VDwT",
+    "custom_liquid_DhyNrB"
+  ]
+}
