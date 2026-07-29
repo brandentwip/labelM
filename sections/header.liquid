@@ -187,6 +187,9 @@
 
   assign class = 'header'
 
+  assign additional_class = 'header--center-logo'
+  assign class = class | append: ' ' | append: additional_class
+
   if header_height_class
     assign class = class | append: ' ' | append: header_height_class
   endif

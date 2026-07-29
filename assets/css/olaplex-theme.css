@@ -1,0 +1,261 @@
+/* OLAPLEX-inspired Theme */
+
+/* Color palette */
+:root {
+  --olaplex-primary: hsl(210, 100%, 30%); /* deep blue */
+  --olaplex-secondary: hsl(210, 60%, 55%);
+  --olaplex-accent: hsl(210, 70%, 45%);
+  --olaplex-bg: hsl(210, 20%, 97%);
+  --olaplex-text: hsl(210, 10%, 20%);
+  --olaplex-light: hsl(0, 0%, 100%);
+}
+
+/* Base typography – using Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--olaplex-bg);
+  color: var(--olaplex-text);
+}
+
+/* Header – centered logo, right‑aligned navigation */
+header-component {
+  --header-padding: 1rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+/* Override default header rows to use flex layout */
+header-component .header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--header-padding);
+}
+
+/* Center logo */
+header-component .header__column--center {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Right‑aligned navigation links */
+header-component .header__column--right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Sticky transparent header */
+header-component[sticky] {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: saturate(180%) blur(10px);
+  transition: background 0.3s ease;
+}
+
+header-component[transparent] {
+  background: transparent;
+}
+
+/* Hover effect for navigation links */
+header-component a {
+  color: var(--olaplex-primary);
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+}
+
+header-component a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: var(--olaplex-primary);
+  transition: width 0.3s ease;
+}
+
+header-component a:hover::after {
+  width: 100%;
+}
+
+/* Hero section – full‑width background image/video with overlay */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--olaplex-light);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Product card – glassmorphism with subtle hover elevation */
+.product-card {
+  background: rgba(255,255,255,0.8);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.product-card .title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.product-card .price {
+  color: var(--olaplex-primary);
+  font-weight: 500;
+}
+
+/* CTA button style */
+.btn-primary {
+  background: var(--olaplex-primary);
+  color: var(--olaplex-light);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--olaplex-accent);
+}
+
+/* Responsive grid for product list */n
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Footer – multi‑column layout */
+footer {
+  background: var(--olaplex-primary);
+  color: var(--olaplex-light);
+  padding: 2rem 1rem;
+}
+
+footer .footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+footer a {
+  color: var(--olaplex-light);
+  text-decoration: underline;
+}
+
+/* Micro‑animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* End of OLAPLEX theme */
+
+/* ---------- Product Page Styling ---------- */
+/* Product information wrapper */
+.product-information {
+  background: var(--olaplex-light);
+  color: var(--olaplex-text);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Product title */
+.product-information h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--olaplex-primary);
+}
+
+/* Product price */
+.product-information .price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--olaplex-primary);
+  margin-bottom: 1rem;
+}
+
+/* Add to cart button */
+.product-information .button-custom {
+  background: var(--olaplex-primary);
+  color: var(--olaplex-light);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.product-information .button-custom:hover {
+  background: var(--olaplex-accent);
+}
+
+/* Variant picker styling */
+.product-information .variant-picker {
+  margin-bottom: 1rem;
+}
+
+/* Accordion styling for product details */
+.product-information .accordion {
+  border-top: 1px solid var(--olaplex-primary);
+  margin-top: 1rem;
+}
+
+/* Recommendations section */
+.product-recommendations {
+  background: var(--olaplex-bg);
+  padding: 2rem 0;
+}
+
+/* End of Product Page Styling */
+
+/* ---------- Collection Links Section ---------- */
+.collection-links-section {
+  background: var(--olaplex-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* End of Collection Links Section */

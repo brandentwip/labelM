@@ -118,7 +118,7 @@
 
       <button
         type="button"
-        class="sticky-add-to-cart__button add-to-cart-button button"
+        class="sticky-add-to-cart__button add-to-cart-button button button-custom"
         ref="addToCartButton"
         on:click="/handleAddToCartClick"
         {% unless current_variant.available %}
@@ -167,14 +167,16 @@
   </sticky-add-to-cart>
 {% endif %}
 
-{% render 'product-information-content',
-  product: closest.product,
-  section_id: section.id,
-  settings: section.settings,
-  media_gallery: media_gallery,
-  product_details: product_details,
-  additional_blocks: additional_blocks
-%}
+<div class="product-information">
+  {% render 'product-information-content',
+    product: closest.product,
+    section_id: section.id,
+    settings: section.settings,
+    media_gallery: media_gallery,
+    product_details: product_details,
+    additional_blocks: additional_blocks
+  %}
+</div>
 
 {% stylesheet %}
   .sticky-add-to-cart__bar {
