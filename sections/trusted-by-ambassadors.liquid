@@ -1,0 +1,172 @@
+{{ 'section-trusted-ambassadors.css' | asset_url | stylesheet_tag }}
+
+<section class="ambassadors" style="--panel-bg: {{ section.settings.panel_bg }}; --panel-text: {{ section.settings.panel_text }};">
+  <div class="ambassadors__grid">
+
+    <div class="ambassadors__intro">
+      <h2 class="ambassadors__heading">{{ section.settings.heading }}</h2>
+      <div class="ambassadors__body">
+        {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+          <a href="{{ section.settings.link_url }}" class="ambassadors__link">{{ section.settings.link_text }}</a>
+        {% endif %}
+        {{ section.settings.body_text }}
+      </div>
+    </div>
+
+    {% for block in section.blocks %}
+      {% if block.type == 'ambassador' %}
+        <div class="ambassador-card {% if section.settings.grayscale %}is-grayscale{% endif %}" {{ block.shopify_attributes }}>
+
+          {% if block.settings.image != blank %}
+            <img
+              class="ambassador-card__img"
+              src="{{ block.settings.image | image_url: width: 900 }}"
+              srcset="{{ block.settings.image | image_url: width: 600 }} 600w,
+                      {{ block.settings.image | image_url: width: 900 }} 900w,
+                      {{ block.settings.image | image_url: width: 1200 }} 1200w"
+              sizes="(min-width: 990px) 25vw, 90vw"
+              alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+              loading="lazy"
+              width="{{ block.settings.image.width }}"
+              height="{{ block.settings.image.height }}"
+            >
+          {% else %}
+            <div class="ambassador-card__placeholder"></div>
+          {% endif %}
+
+          {% if block.settings.badge_label != blank %}
+            <span class="ambassador-card__badge">
+              <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M6.2 11.3 3 8.1l1.1-1.1 2.1 2.1 4.7-4.7L12 5.5z"/></svg>
+              {{ block.settings.badge_label }}
+            </span>
+          {% endif %}
+
+          <button
+            type="button"
+            class="ambassador-card__nameplate"
+            aria-expanded="false"
+            {% if block.settings.quote == blank %}disabled{% endif %}
+          >
+            <span class="ambassador-card__name">{{ block.settings.name }}</span>
+            {% if block.settings.quote != blank %}
+              <svg class="ambassador-card__chevron" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <path fill="currentColor" d="M5 7l5 5 5-5" />
+              </svg>
+            {% endif %}
+          </button>
+
+          {% if block.settings.quote != blank %}
+            <div class="ambassador-card__quote">
+              <p>&ldquo;{{ block.settings.quote }}&rdquo;</p>
+            </div>
+          {% endif %}
+
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    document.querySelectorAll('.ambassador-card__nameplate').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var card = btn.closest('.ambassador-card');
+        var open = card.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open);
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Trusted by ambassadors",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted By Stylists Worldwide"
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "<p>and see how they use our products to achieve results that defy expectations.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Meet our Global Ambassadors"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "color",
+      "id": "panel_bg",
+      "label": "Intro panel background",
+      "default": "#F2F0EC"
+    },
+    {
+      "type": "color",
+      "id": "panel_text",
+      "label": "Intro panel text",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "checkbox",
+      "id": "grayscale",
+      "label": "Show ambassador photos in black & white",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ambassador",
+      "name": "Ambassador",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Ambassador name"
+        },
+        {
+          "type": "text",
+          "id": "badge_label",
+          "label": "Badge label",
+          "default": "Brand Ambassador"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote (optional, shown on click)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trusted by ambassadors",
+      "blocks": [
+        { "type": "ambassador" },
+        { "type": "ambassador" },
+        { "type": "ambassador" }
+      ]
+    }
+  ]
+}
+{% endschema %}
