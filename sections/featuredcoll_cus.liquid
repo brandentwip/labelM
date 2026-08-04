@@ -240,31 +240,6 @@
     cursor:not-allowed;
 }
 
-@media screen and (max-width:1200px){
-
-.fna-grid{
-    grid-template-columns:repeat(3,1fr);
-}
-
-}
-
-@media screen and (max-width:990px){
-
-.featured-new-arrivals{
-    padding:60px 0;
-}
-
-.fna-header h2{
-    font-size:40px;
-}
-
-.fna-grid{
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-}
-
 @media screen and (max-width:749px){
 
 .featured-new-arrivals{
@@ -282,9 +257,10 @@
 .fna-grid{
     display:flex;
     overflow-x:auto;
-    gap:18px;
+    gap:16px;
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
     padding-bottom:8px;
 }
 
@@ -293,28 +269,35 @@
 }
 
 .fna-card{
-    min-width:82%;
+    flex:0 0 calc(50% - 8px);
+    min-width:calc(50% - 8px);
     scroll-snap-align:start;
-    flex-shrink:0;
 }
 
 .fna-card h3{
-    font-size:17px;
+    font-size:16px;
 }
 
 .current-price{
-    font-size:24px;
+    font-size:22px;
 }
 
 .compare-price{
-    font-size:15px;
+    font-size:14px;
 }
 
 .add-btn{
-    min-width:74px;
-    height:40px;
-    padding:0 20px;
+    min-width:68px;
+    height:38px;
+    padding:0 18px;
+    font-size:12px;
 }
+
+}
+
+}
+
+
 
 }
 </style>
