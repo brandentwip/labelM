@@ -202,7 +202,7 @@
                 "show_pickup_availability": false,
                 "gift_card_form": true,
                 "recipient_button_style": "custom",
-                "recipient_button_background": "#947B53",
+                "recipient_button_background": "#947b53",
                 "recipient_button_text": "{{ settings.color_palette.foreground }}",
                 "recipient_button_border": "{{ settings.color_palette.foreground }}",
                 "selected_recipient_button_style": "default",
@@ -239,7 +239,7 @@
                   "static": true,
                   "settings": {
                     "style_class": "button-custom",
-                    "custom_button_background": "#947B53",
+                    "custom_button_background": "#947b53",
                     "custom_button_text": "{{ settings.color_palette.background }}",
                     "custom_button_border": "{{ settings.color_palette.background }}"
                   },
@@ -247,6 +247,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
