@@ -32,18 +32,35 @@ NOTE: This is a scaffold because a complete 900+ line premium section exceeds ch
           <div class="rating">★★★★★</div>
         {% endif %}
 
-        <div class="price">
-          {{ product.price | money }}
-          {% if product.compare_at_price > product.price %}
-            <s>{{ product.compare_at_price | money }}</s>
-          {% endif %}
-        </div>
+       <div class="fna-footer">
+  <div class="price">
+    <span class="current-price">{{ product.price | money }}</span>
 
-        {% form 'product', product %}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          <button class="add-btn" type="submit">ADD</button>
-        {% endform %}
-      </div>
+    {% if product.compare_at_price > product.price %}
+      <span class="compare-price">{{ product.compare_at_price | money }}</span>
+    {% endif %}
+  </div>
+
+  {% form 'product', product %}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.selected_or_first_available_variant.id }}"
+    >
+
+    <button
+      class="add-btn"
+      type="submit"
+      {% unless product.available %}disabled{% endunless %}
+    >
+      {% if product.available %}
+        ADD
+      {% else %}
+        SOLD OUT
+      {% endif %}
+    </button>
+  {% endform %}
+</div>
     {% endfor %}
   </div>
 </section>
