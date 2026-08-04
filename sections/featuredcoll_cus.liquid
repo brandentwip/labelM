@@ -282,10 +282,9 @@
 .fna-grid{
     display:flex;
     overflow-x:auto;
-    gap:16px;
+    gap:18px;
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
     padding-bottom:8px;
 }
 
@@ -294,30 +293,27 @@
 }
 
 .fna-card{
-    flex:0 0 calc(50% - 8px);
-    min-width:calc(50% - 8px);
+    min-width:82%;
     scroll-snap-align:start;
+    flex-shrink:0;
 }
 
 .fna-card h3{
-    font-size:16px;
+    font-size:17px;
 }
 
 .current-price{
-    font-size:22px;
+    font-size:24px;
 }
 
 .compare-price{
-    font-size:14px;
+    font-size:15px;
 }
 
 .add-btn{
-    min-width:68px;
-    height:38px;
-    padding:0 18px;
-    font-size:12px;
-}
-
+    min-width:74px;
+    height:40px;
+    padding:0 20px;
 }
 
 }
