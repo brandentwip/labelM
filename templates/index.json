@@ -98,6 +98,17 @@
         "padding-block-end": 72
       }
     },
+    "featuredcoll_cus_4faa9m": {
+      "type": "featuredcoll_cus",
+      "name": "Featured New Arrivals",
+      "settings": {
+        "heading": "New Arrivals & Trending Picks",
+        "collection": "curl-control-and-smooth",
+        "products_to_show": 4,
+        "show_rating": true,
+        "show_badge": true
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -276,6 +287,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "collection": "nourish-and-repair",
@@ -1012,6 +1024,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "featuredcoll_cus_4faa9m",
     "product_list_fa6P9H",
     "collection_list_qnRDtA",
     "17845405917a7e606e",
