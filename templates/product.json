@@ -631,7 +631,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like </h3>",
+            "text": "<h5>You may also like </h5>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
