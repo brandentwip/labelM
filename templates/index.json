@@ -968,6 +968,7 @@
       "block_order": [
         "ai_gen_block_4d576b8_iNY7aD"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
@@ -1119,6 +1120,7 @@
         },
         "ai_gen_block_8ec3784_WKPLen": {
           "type": "ai_gen_block_8ec3784",
+          "disabled": true,
           "settings": {
             "desktop_width_percent": 100,
             "aspect_ratio": "3 / 4",
@@ -1265,6 +1267,7 @@
         },
         "ai_gen_block_8ec3784_TnykYP": {
           "type": "ai_gen_block_8ec3784",
+          "disabled": true,
           "settings": {
             "desktop_width_percent": 100,
             "aspect_ratio": "3 / 4",
