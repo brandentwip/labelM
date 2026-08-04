@@ -655,7 +655,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>FAQs</h2>",
+            "text": "<h3>FAQs</h3>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
