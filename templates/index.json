@@ -102,7 +102,7 @@
       "type": "featuredcoll_cus",
       "name": "Featured New Arrivals",
       "settings": {
-        "heading": "New Arrivals & Trending Picks",
+        "heading": "NEW ARRIVALS",
         "collection": "curl-control-and-smooth",
         "products_to_show": 4,
         "show_rating": true,
