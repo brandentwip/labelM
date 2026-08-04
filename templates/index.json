@@ -766,7 +766,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h4>SHOP BY PRODUCT</h4>",
+                "text": "<h4>Shop By Product</h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
