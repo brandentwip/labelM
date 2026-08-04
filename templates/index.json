@@ -581,7 +581,7 @@
             "desktop_width_percent": 100,
             "aspect_ratio": "3 / 4",
             "image_fit": "contain",
-            "gap": 0,
+            "gap": 5,
             "gap_mobile": 15,
             "border_radius": 8,
             "image_1": "shopify://shop_images/LABELM-REVAMP-SOCIAL-PLATFORM-INSTA-GRID-1080x1350-MIX19.jpg",
@@ -627,8 +627,8 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 10,
-        "section_width": "full-width",
+        "gap": 12,
+        "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
@@ -1021,10 +1021,10 @@
         "padding-block-end": 0
       }
     },
-    "trusted_by_ambassadors_aFQGt8": {
+    "trusted_by_ambassadors_cKGbbr": {
       "type": "trusted-by-ambassadors",
       "blocks": {
-        "ambassador_LBwxzR": {
+        "ambassador_3FRUfi": {
           "type": "ambassador",
           "settings": {
             "name": "Ambassador name",
@@ -1032,7 +1032,7 @@
             "quote": ""
           }
         },
-        "ambassador_C3YLrd": {
+        "ambassador_6N3DgB": {
           "type": "ambassador",
           "settings": {
             "name": "Ambassador name",
@@ -1040,7 +1040,7 @@
             "quote": ""
           }
         },
-        "ambassador_76RcdW": {
+        "ambassador_M6iEqm": {
           "type": "ambassador",
           "settings": {
             "name": "Ambassador name",
@@ -1050,9 +1050,9 @@
         }
       },
       "block_order": [
-        "ambassador_LBwxzR",
-        "ambassador_C3YLrd",
-        "ambassador_76RcdW"
+        "ambassador_3FRUfi",
+        "ambassador_6N3DgB",
+        "ambassador_M6iEqm"
       ],
       "name": "Trusted by ambassadors",
       "settings": {
@@ -1077,6 +1077,6 @@
     "custom_liquid_FgaiWJ",
     "178514422977148a47",
     "custom_liquid_BnANGY",
-    "trusted_by_ambassadors_aFQGt8"
+    "trusted_by_ambassadors_cKGbbr"
   ]
 }
