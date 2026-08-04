@@ -281,6 +281,67 @@
               },
               "block_order": []
             },
+            "ai_gen_block_d4d6c8e_99NHQd": {
+              "type": "ai_gen_block_d4d6c8e",
+              "settings": {
+                "text_1": "Complimentary Samples",
+                "text_2": "Free Shipping",
+                "desktop_width_percent": 100,
+                "item_spacing": 30,
+                "icon_text_gap": 4,
+                "vertical_padding": 0,
+                "horizontal_padding": 0,
+                "show_divider": true,
+                "divider_height": 20,
+                "divider_color": "#DFDFDF",
+                "icon_size": 20,
+                "text_size": 14,
+                "border_radius": 0,
+                "background_color": "#ffffff",
+                "text_color": "#000000",
+                "icon_color": "#000000"
+              },
+              "blocks": {}
+            },
+            "ai_gen_block_a8e373b_KBHKVq": {
+              "type": "ai_gen_block_a8e373b",
+              "settings": {
+                "section_title": "Key Benefits",
+                "title_size": 16,
+                "title_transform": "uppercase",
+                "title_letter_spacing": 1,
+                "title_color": "#000000",
+                "text_alignment": "left",
+                "header_spacing": 24,
+                "benefit_1_text": "A refreshing, sparkling citrus scent with notes of grapefruit zest and sugared mint",
+                "benefit_2_text": "An instant boost of salon-fresh energy",
+                "benefit_3_text": "Free of sulphates, silicones, protein, phthalates, phosphate and parabens",
+                "benefit_4_text": "",
+                "benefit_5_text": "",
+                "benefit_6_text": "",
+                "columns_desktop": 1,
+                "columns_mobile": "1",
+                "desktop_width_percent": 100,
+                "show_icons": true,
+                "icon_size": 20,
+                "icon_color": "#000000",
+                "icon_text_gap": 12,
+                "text_size": 14,
+                "text_color": "#333333",
+                "item_alignment": "flex-start",
+                "item_spacing": 16,
+                "item_padding": 0,
+                "item_background_color": "rgba(0,0,0,0)",
+                "item_border_radius": 0,
+                "item_border_width": 0,
+                "item_border_color": "#FFFFFF",
+                "background_color": "#f5f5f5",
+                "border_radius": 0,
+                "inner_padding": 24,
+                "section_padding": 0
+              },
+              "blocks": {}
+            },
             "accordion_erbYBw": {
               "type": "accordion",
               "name": "t:names.accordion",
@@ -305,17 +366,35 @@
                 "accordion_row_V9JdtY": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Product Details",
+                    "heading": "How To Use",
                     "open_by_default": true,
                     "icon": "none",
                     "width": 20
                   },
                   "blocks": {
-                    "custom_liquid_bFbraQ": {
-                      "type": "custom-liquid",
-                      "name": "t:names.custom_liquid",
+                    "text_XpgMDM": {
+                      "type": "text",
+                      "name": "t:names.text",
                       "settings": {
-                        "custom_liquid": "<div class=\"product-description rte\">\n  {{ product.description }}\n</div>"
+                        "text": "<ol><li>Hold bottle 6-8 inches form hair & body. Reapply as desired.</li><li>Layer over your favorite products for a long-lasting effect.</li></ol>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
                       },
                       "blocks": {}
                     },
@@ -348,13 +427,151 @@
                     }
                   },
                   "block_order": [
-                    "custom_liquid_bFbraQ",
+                    "text_XpgMDM",
                     "product_description_WRGahH"
+                  ]
+                },
+                "accordion_row_EpkXfj": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Details",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_FE4WmT": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "{{ closest.product.description }}",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "product_description_dKzVLq": {
+                      "type": "product-description",
+                      "name": "t:names.product_description",
+                      "disabled": true,
+                      "settings": {
+                        "text": "<p>{{ closest.product.description }}</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_FE4WmT",
+                    "product_description_dKzVLq"
+                  ]
+                },
+                "accordion_row_3cMhxe": {
+                  "type": "_accordion-row",
+                  "settings": {
+                    "heading": "Ingredients",
+                    "open_by_default": true,
+                    "icon": "none",
+                    "width": 20
+                  },
+                  "blocks": {
+                    "text_m7Wj4F": {
+                      "type": "text",
+                      "name": "t:names.text",
+                      "settings": {
+                        "text": "<p><strong>Top Notes:</strong> Grapefruit Zest<br/>Bright, citrus spark that delivers an immediate burst of crisp, zesty energy.</p><p><strong>Middle Notes</strong>: Sugared Mint & Ginger<br/>A refreshing blend of sugared mint and ginger for a crisp, clean finish that refreshes and awakens the senses.</p><p><strong>Base Notes</strong>: Crushed Sage<br/>A soft, sophisticated base that anchors the scent with warmth.<br/><br/><strong>FREE OF: </strong>Sulphates, Silicones, Protein, Phthalates, Phosphate and Parabens<br/><br/>Aqua (Water, Eau), Alcohol Denat., Parfum (Fragrance), Glycerin,<strong> </strong>Caesalpinia Spinosa Fruit Pod Extract, Helianthus Annuus (Sunflower) Sprout Extract, Pentylene Glycol, Caprylyl Glycol, Propanediol, Ethylhexylglycerin, Propylene Glycol, Citric Acid, Phenoxyethanol, Sodium Benzoate, Sodium Hydroxide, Acetylcedrene, Pinene, Limonene, Linalool, Carvone, Benzyl Benzoate, Citral, Citrus Aurantium Peel Oil, Eucalyptus Globulus Leaf Oil, Mentha Viridis Leaf Oil, Mentha Piperita Oil, Citronellol, Hexyl Cinnamal, Menthol, Lavandula Angustifolia Oil, Linalyl Acetate, Geranyl Acetate.</p><p><em>Ingredients are subject to change. For the most current ingredient list, please consult the product packaging of the item you received.</em><br/><br/>Avoid contact with eyes.</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "product_description_Lq4Tkx": {
+                      "type": "product-description",
+                      "name": "t:names.product_description",
+                      "disabled": true,
+                      "settings": {
+                        "text": "<p>{{ closest.product.description }}</p>",
+                        "width": "fit-content",
+                        "max_width": "normal",
+                        "alignment": "left",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "text_color": "",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_m7Wj4F",
+                    "product_description_Lq4Tkx"
                   ]
                 }
               },
               "block_order": [
-                "accordion_row_V9JdtY"
+                "accordion_row_V9JdtY",
+                "accordion_row_EpkXfj",
+                "accordion_row_3cMhxe"
               ]
             },
             "variant_picker_R3rGDr": {
@@ -385,6 +602,8 @@
             "product_description_UeEWch",
             "divider_VJhene",
             "buy_buttons_eYQEYi",
+            "ai_gen_block_d4d6c8e_99NHQd",
+            "ai_gen_block_a8e373b_KBHKVq",
             "accordion_erbYBw",
             "variant_picker_R3rGDr"
           ]
