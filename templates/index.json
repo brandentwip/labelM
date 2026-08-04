@@ -276,6 +276,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "collection": "nourish-and-repair",
@@ -295,6 +296,17 @@
         "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 48,
         "padding-block-end": 48
+      }
+    },
+    "featuredcoll_cus_MGBRWr": {
+      "type": "featuredcoll_cus",
+      "name": "Featured New Arrivals",
+      "settings": {
+        "heading": "New Arrivals & Trending Picks",
+        "collection": "curl-control-and-smooth",
+        "products_to_show": 4,
+        "show_rating": true,
+        "show_badge": true
       }
     },
     "section_CChfkz": {
@@ -1531,6 +1543,7 @@
   "order": [
     "hero_jVaWmY",
     "product_list_fa6P9H",
+    "featuredcoll_cus_MGBRWr",
     "section_CChfkz",
     "17847132121bd06a65",
     "collection_list_qnRDtA",
