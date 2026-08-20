@@ -655,13 +655,13 @@
             "gap": 0,
             "gap_mobile": 15,
             "border_radius": 8,
-            "image_1": "shopify://shop_images/LABELM-REVAMP-SOCIAL-PLATFORM-INSTA-GRID-1080x1350-MIX19.jpg",
+            "image_1": "shopify://shop_images/1.jpg",
             "heading_1": "",
             "subheading_1": "",
             "link_1": "",
             "button_text_1": "",
             "button_link_1": "shopify://pages/about-us",
-            "image_2": "shopify://shop_images/salon-finder-22.jpg",
+            "image_2": "shopify://shop_images/2.jpg",
             "heading_2": "",
             "subheading_2": "",
             "link_2": "shopify://pages/salon-finder",
@@ -1501,6 +1501,7 @@
         "ambassador_UWiDaD": {
           "type": "ambassador",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-08-20_175935.png",
             "name": "Ambassador name",
             "badge_label": "Brand Ambassador",
             "quote": ""
@@ -1509,6 +1510,7 @@
         "ambassador_F9NtMH": {
           "type": "ambassador",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-08-20_175955.png",
             "name": "Ambassador name",
             "badge_label": "Brand Ambassador",
             "quote": ""
@@ -1517,6 +1519,7 @@
         "ambassador_PKTAGi": {
           "type": "ambassador",
           "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-08-20_180015.png",
             "name": "Ambassador name",
             "badge_label": "Brand Ambassador",
             "quote": ""
@@ -1530,7 +1533,7 @@
       ],
       "name": "Trusted by ambassadors",
       "settings": {
-        "heading": "Trusted By Stylists Worldwide",
+        "heading": "BORN IN THE SALON <br> PERFECTED BY EXPERTS",
         "body_text": "<p>and see how they use our products to achieve results that defy expectations.</p>",
         "link_text": "Meet our Global Ambassadors",
         "link_url": "",
