@@ -45,7 +45,7 @@
             "thumbnail_position": "left",
             "thumbnail_width": 72,
             "thumbnail_radius": 0,
-            "aspect_ratio": "adapt",
+            "aspect_ratio": "1/1.25",
             "constrain_to_viewport": false,
             "media_fit": "contain",
             "media_radius": 0,
@@ -800,7 +800,7 @@
         "disclosures_g9mWze"
       ],
       "settings": {
-        "content_width": "content-full-width",
+        "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": false,
         "limit_details_width": false,
