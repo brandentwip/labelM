@@ -1532,10 +1532,13 @@
         "ambassador_F9NtMH",
         "ambassador_PKTAGi"
       ],
+      "custom_css": [
+        ".ambassador-card.is-grayscale .ambassador-card__img {object-fit: contain;}"
+      ],
       "name": "Trusted by ambassadors",
       "settings": {
         "heading": "BORN IN THE SALON  PERFECTED BY EXPERTS",
-        "body_text": "<p><br/>Every product is born from salon expertise and perfected through decades of award-winning artistry - bringing professional precision to your everyday routine.</p>",
+        "body_text": "<p>Every product is born from salon expertise and perfected through decades of award-winning artistry - bringing professional precision to your everyday routine.</p>",
         "link_text": "Meet our Global Ambassadors",
         "link_url": "",
         "panel_bg": "#f2f0ec",
