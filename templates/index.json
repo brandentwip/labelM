@@ -1532,9 +1532,7 @@
         "ambassador_F9NtMH",
         "ambassador_PKTAGi"
       ],
-      "custom_css": [
-        ".ambassador-card.is-grayscale .ambassador-card__img {object-fit: contain;}"
-      ],
+      "custom_css": [],
       "name": "Trusted by ambassadors",
       "settings": {
         "heading": "BORN IN THE SALON  PERFECTED BY EXPERTS",
@@ -1543,7 +1541,7 @@
         "link_url": "",
         "panel_bg": "#f2f0ec",
         "panel_text": "#1a1a1a",
-        "grayscale": true
+        "grayscale": false
       }
     }
   },
