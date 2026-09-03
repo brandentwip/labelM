@@ -71,9 +71,7 @@
         "goal_3",
         "goal_4"
       ],
-      "custom_css": [
-        ".labelm-goals-grid {display: flex; grid-template-columns: repeat(4, 1fr); gap: 26px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "kick": "WHAT ARE YOUR HAIR GOALS?",
         "heading": "Your concerns, our solutions"
