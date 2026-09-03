@@ -1,0 +1,1111 @@
+/* ==========================================================================
+   LABEL.M — Luxury Responsive Homepage Stylesheet
+   ========================================================================== */
+
+:root {
+  --navy: #161a24;
+  --navy-light: #20242e;
+  --navy-dark: #0e1017;
+  --gold: #c9a961;
+  --gold-dark: #a8874a;
+  --gold-light: #e5c982;
+  --cream: #f7f4ee;
+  --cream-soft: #f2efe6;
+  --ink: #1a1a1a;
+  --muted: #8a8580;
+  --muted-light: #b8b4ac;
+  --line: #e8e3d8;
+  --white: #ffffff;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --container-max: 1200px;
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base resets for custom homepage wrapper */
+.labelm-home-root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.labelm-home-root *,
+.labelm-home-root *::before,
+.labelm-home-root *::after {
+  box-sizing: border-box;
+}
+
+/* Container */
+.labelm-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .labelm-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ==========================================================================
+   Announcement / Promo Bar
+   ========================================================================== */
+.labelm-promo-bar {
+  background-color: var(--navy);
+  color: var(--cream);
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  z-index: 50;
+}
+
+.labelm-promo-bar span {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Navigation Header
+   ========================================================================== */
+.labelm-header {
+  background-color: var(--cream);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition-smooth);
+}
+
+.labelm-header.is-scrolled {
+  background-color: rgba(247, 244, 238, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.labelm-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  min-height: 68px;
+}
+
+/* Logo */
+.labelm-logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.labelm-logo:hover {
+  opacity: 0.85;
+}
+
+/* Desktop Navigation Links */
+.labelm-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.labelm-nav-links li a {
+  color: #3a3a3a;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.labelm-nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.labelm-nav-links li a:hover {
+  color: var(--navy);
+}
+
+.labelm-nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Action Icons */
+.labelm-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.labelm-icon-btn {
+  background: none;
+  border: none;
+  color: #2b2b2b;
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.labelm-icon-btn:hover {
+  color: var(--gold-dark);
+  transform: translateY(-1px);
+}
+
+.labelm-icon-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.labelm-cart-badge {
+  position: absolute;
+  top: 0px;
+  right: -2px;
+  background-color: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+/* Mobile Hamburger Button */
+.labelm-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--navy);
+}
+
+.labelm-mobile-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Mobile Drawer */
+.labelm-mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 85%;
+  max-width: 380px;
+  height: 100vh;
+  background-color: var(--cream);
+  z-index: 200;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.labelm-mobile-drawer.is-open {
+  left: 0;
+}
+
+.labelm-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 190;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.labelm-drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.labelm-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.labelm-drawer-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.labelm-drawer-nav {
+  list-style: none;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.labelm-drawer-nav li a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  padding: 6px 0;
+}
+
+.labelm-drawer-footer {
+  margin-top: auto;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.labelm-hero {
+  position: relative;
+  min-height: 480px;
+  background: linear-gradient(120deg, #20242e 0%, #14161b 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.labelm-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+}
+
+.labelm-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 440px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.labelm-eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.labelm-hero h1 {
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.labelm-hero p {
+  color: #c9c5be;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 28px;
+}
+
+.labelm-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold);
+  color: #161a24;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(201, 169, 97, 0.25);
+  border: none;
+  cursor: pointer;
+}
+
+.labelm-cta-btn:hover {
+  background-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+}
+
+.labelm-hero-visual {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 620px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.labelm-hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+  opacity: 0.92;
+  transition: transform 1.2s ease;
+}
+
+.labelm-hero:hover .labelm-hero-visual img {
+  transform: scale(1.02);
+}
+
+.labelm-hero-visual::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+  background: linear-gradient(90deg, #14161b 0%, rgba(20, 22, 27, 0) 100%);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Section Headers (Kick & Title)
+   ========================================================================== */
+.labelm-sec-head {
+  padding-top: 56px;
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.labelm-sec-head .kick {
+  color: var(--gold-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.labelm-sec-head h2 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Hair Goals Grid
+   ========================================================================== */
+.labelm-goals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-bottom: 56px;
+}
+
+.labelm-goal-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.labelm-goal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  border-color: var(--gold);
+}
+
+.labelm-goal-thumb {
+  height: 115px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.labelm-goal-card:nth-child(1) .labelm-goal-thumb {
+  background: linear-gradient(135deg, #c9a5ae, #a86b7a);
+}
+.labelm-goal-card:nth-child(2) .labelm-goal-thumb {
+  background: linear-gradient(135deg, #a8b8a0, #6f8a68);
+}
+.labelm-goal-card:nth-child(3) .labelm-goal-thumb {
+  background: linear-gradient(135deg, #c9b98f, #a8895a);
+}
+.labelm-goal-card:nth-child(4) .labelm-goal-thumb {
+  background: linear-gradient(135deg, #b0a8c4, #8574a8);
+}
+
+.labelm-goal-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 70%);
+}
+
+.labelm-goal-text {
+  padding: 16px 12px;
+  background-color: #ffffff;
+}
+
+.labelm-goal-text h4 {
+  font-size: 14px;
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.labelm-goal-text span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Launch Banner (M-Plex Bond Technology)
+   ========================================================================== */
+.labelm-launch-section {
+  margin-bottom: 56px;
+}
+
+.labelm-launch-banner {
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(22, 26, 36, 0.15);
+}
+
+.labelm-launch-content {
+  padding: 40px 48px;
+  flex: 1;
+}
+
+.labelm-launch-content h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.labelm-launch-content p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #c9c5be;
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+.labelm-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 2px;
+  text-decoration: none;
+  margin-top: 18px;
+  transition: all 0.2s ease;
+}
+
+.labelm-outline-btn:hover {
+  background-color: var(--gold);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+.labelm-launch-media {
+  width: 290px;
+  height: 180px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.labelm-launch-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   Featured Regime (4 Product Cards)
+   ========================================================================== */
+.labelm-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  padding-bottom: 56px;
+}
+
+.labelm-product-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 14px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.labelm-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+}
+
+.labelm-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--gold);
+  color: #161a24;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.labelm-product-img {
+  height: 160px;
+  border-radius: 4px;
+  background: var(--cream-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.labelm-product-img img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.labelm-product-card:hover .labelm-product-img img {
+  transform: scale(1.05);
+}
+
+.labelm-product-card h5 {
+  font-size: 13px;
+  margin: 0 0 6px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  min-height: 35px;
+}
+
+.labelm-stars {
+  color: var(--gold-dark);
+  font-size: 12px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.labelm-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   5-Step Personalised Regime
+   ========================================================================== */
+.labelm-steps-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 48px 40px;
+  border: 1px solid var(--line);
+  margin-bottom: 56px;
+}
+
+.labelm-steps-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.labelm-steps-head .kick {
+  color: var(--gold-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.labelm-steps-head h3 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.labelm-steps-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.labelm-step-item {
+  text-align: center;
+  padding: 8px;
+}
+
+.labelm-step-number {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gold-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 13px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  background-color: #fff;
+  transition: all 0.25s ease;
+}
+
+.labelm-step-item:hover .labelm-step-number {
+  background-color: var(--gold-dark);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.labelm-step-item h5 {
+  font-size: 13px;
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.labelm-step-item p {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Shop By Category Cards
+   ========================================================================== */
+.labelm-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-bottom: 64px;
+}
+
+.labelm-cat-card {
+  border-radius: 6px;
+  overflow: hidden;
+  color: #ffffff;
+  position: relative;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.labelm-cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.labelm-cat-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.labelm-cat-card.c1 .labelm-cat-bg {
+  background: linear-gradient(160deg, #232838, #12141a);
+}
+.labelm-cat-card.c2 .labelm-cat-bg {
+  background: linear-gradient(160deg, #9b8bc4, #4f4470);
+}
+.labelm-cat-card.c3 .labelm-cat-bg {
+  background: linear-gradient(160deg, #3a4048, #14161a);
+}
+.labelm-cat-card.c4 .labelm-cat-bg {
+  background: linear-gradient(160deg, #7ba694, #3a5c4d);
+}
+
+.labelm-cat-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 0.5s ease;
+}
+
+.labelm-cat-card:hover .labelm-cat-bg img {
+  transform: scale(1.06);
+}
+
+.labelm-cat-txt {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65) 0%, transparent 80%);
+}
+
+.labelm-cat-off {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--gold);
+  color: #161a24;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+.labelm-cat-txt h5 {
+  font-size: 14px;
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.labelm-cat-txt span {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ==========================================================================
+   Luxury Footer
+   ========================================================================== */
+.labelm-footer {
+  background: var(--navy);
+  color: #c9c5be;
+  padding-top: 56px;
+  padding-bottom: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.labelm-foot-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.labelm-foot-brand {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+.labelm-foot-brand + p {
+  font-size: 12.5px;
+  color: #8a867f;
+  line-height: 1.65;
+  max-width: 240px;
+  margin: 0;
+}
+
+.labelm-foot-col h6 {
+  color: var(--gold);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.labelm-foot-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 2.1;
+  color: #b8b4ac;
+}
+
+.labelm-foot-col ul li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.labelm-foot-col ul li a:hover {
+  color: #ffffff;
+}
+
+.labelm-signup-desc {
+  font-size: 12.5px;
+  color: #8a867f;
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+
+.labelm-signup-form {
+  display: flex;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.labelm-signup-form input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #3a3d47;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 14px;
+  flex: 1;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.labelm-signup-form input:focus {
+  border-color: var(--gold);
+}
+
+.labelm-signup-form button {
+  background: var(--gold);
+  border: none;
+  color: #161a24;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 0 18px;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background-color 0.2s ease;
+}
+
+.labelm-signup-form button:hover {
+  background-color: var(--gold-light);
+}
+
+.labelm-foot-bottom {
+  border-top: 1px solid #2a2d36;
+  padding-top: 22px;
+  font-size: 11.5px;
+  color: #706c66;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.labelm-foot-bottom a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.labelm-foot-bottom a:hover {
+  color: var(--gold);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .labelm-goals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .labelm-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .labelm-cat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .labelm-steps-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .labelm-foot-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .labelm-hero-visual {
+    width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .labelm-nav-links {
+    display: none;
+  }
+  .labelm-mobile-toggle {
+    display: block;
+  }
+
+  .labelm-hero {
+    min-height: auto;
+  }
+  .labelm-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+    padding-bottom: 240px;
+  }
+  .labelm-hero-content {
+    max-width: 100%;
+    padding-top: 36px;
+    padding-bottom: 20px;
+  }
+  .labelm-hero h1 {
+    font-size: 30px;
+  }
+  .labelm-hero-visual {
+    width: 100%;
+    height: 240px;
+    top: auto;
+    bottom: 0;
+  }
+  .labelm-hero-visual::before {
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(180deg, #14161b 0%, rgba(20, 22, 27, 0) 100%);
+  }
+
+  .labelm-launch-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .labelm-launch-content {
+    padding: 30px 24px 24px;
+  }
+  .labelm-launch-media {
+    width: 100%;
+    height: 160px;
+  }
+
+  .labelm-steps-card {
+    padding: 32px 20px;
+  }
+  .labelm-steps-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .labelm-step-item {
+    display: flex;
+    text-align: left;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .labelm-step-number {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .labelm-foot-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .labelm-foot-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .labelm-goals-grid {
+    grid-template-columns: 1fr;
+  }
+  .labelm-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .labelm-cat-grid {
+    grid-template-columns: 1fr;
+  }
+  .labelm-sec-head h2 {
+    font-size: 22px;
+  }
+}
