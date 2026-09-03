@@ -16,7 +16,8 @@
         "heading": "Molecular bond\nscience, bottled.",
         "description": "Your great hair days are rooted in M-Plex Bond Technology — intensively repairing and protecting for noticeably healthier, silky-smooth hair.",
         "button_label": "Shop M-Plex",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "image": "shopify://shop_images/2.jpg"
       }
     },
     "labelm_hair_goals": {
@@ -27,6 +28,7 @@
           "settings": {
             "title": "Healthy Hair & Scalp",
             "subtitle": "For everyday use",
+            "link": "",
             "color_1": "#c9a5ae",
             "color_2": "#a86b7a"
           }
@@ -36,6 +38,7 @@
           "settings": {
             "title": "Nourish & Repair",
             "subtitle": "For dry & damaged hair",
+            "link": "",
             "color_1": "#a8b8a0",
             "color_2": "#6f8a68"
           }
@@ -45,6 +48,7 @@
           "settings": {
             "title": "Colour Care",
             "subtitle": "For blonde & coloured hair",
+            "link": "",
             "color_1": "#c9b98f",
             "color_2": "#a8895a"
           }
@@ -54,12 +58,18 @@
           "settings": {
             "title": "Curl Control & Smooth",
             "subtitle": "For curls & anti-frizz",
+            "link": "",
             "color_1": "#b0a8c4",
             "color_2": "#8574a8"
           }
         }
       },
-      "block_order": ["goal_1", "goal_2", "goal_3", "goal_4"],
+      "block_order": [
+        "goal_1",
+        "goal_2",
+        "goal_3",
+        "goal_4"
+      ],
       "settings": {
         "kick": "WHAT ARE YOUR HAIR GOALS?",
         "heading": "Your concerns, our solutions"
@@ -129,7 +139,13 @@
           }
         }
       },
-      "block_order": ["step_1", "step_2", "step_3", "step_4", "step_5"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3",
+        "step_4",
+        "step_5"
+      ],
       "settings": {
         "kick": "WHAT IS YOUR SIGNATURE STEP-BY-STEP?",
         "heading": "Create your 5-step personalised regime"
@@ -143,7 +159,8 @@
           "settings": {
             "title": "M-Plex Bond Repair Set",
             "subtitle": "Rs. 4,500 → Rs. 3,825",
-            "badge": "15% OFF"
+            "badge": "15% OFF",
+            "link": ""
           }
         },
         "cat_2": {
@@ -151,7 +168,8 @@
           "settings": {
             "title": "Amaranth Thickening Set",
             "subtitle": "Rs. 5,100 → Rs. 4,335",
-            "badge": "15% OFF"
+            "badge": "15% OFF",
+            "link": ""
           }
         },
         "cat_3": {
@@ -159,7 +177,8 @@
           "settings": {
             "title": "Nourish & Repair Set",
             "subtitle": "Rs. 4,800 → Rs. 4,080",
-            "badge": "15% OFF"
+            "badge": "15% OFF",
+            "link": ""
           }
         },
         "cat_4": {
@@ -167,11 +186,17 @@
           "settings": {
             "title": "Restorative Masks",
             "subtitle": "Shop the range",
-            "badge": ""
+            "badge": "",
+            "link": ""
           }
         }
       },
-      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4"],
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3",
+        "cat_4"
+      ],
       "settings": {
         "kick": "SHOP BY CATEGORY",
         "heading": "Regime sets, on offer"
