@@ -32,6 +32,7 @@
         "logo_mpqMmy": {
           "type": "logo",
           "name": "t:names.logo",
+          "disabled": true,
           "settings": {
             "inverse": false,
             "font": "heading",
@@ -47,6 +48,22 @@
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "jumbo_text_4HCTqB": {
+          "type": "jumbo-text",
+          "name": "t:names.jumbo_text",
+          "settings": {
+            "text": "Labelm.",
+            "font": "heading",
+            "alignment": "left",
+            "line_height": "0.8",
+            "letter_spacing": "-0.03em",
+            "case": "none",
+            "text_effect": "none",
+            "animation_repeat": false,
+            "text_color": ""
           },
           "blocks": {}
         },
@@ -223,6 +240,7 @@
       },
       "block_order": [
         "logo_mpqMmy",
+        "jumbo_text_4HCTqB",
         "menu_VAHDBN",
         "menu_jNwcaw",
         "group_H6VpwJ"
