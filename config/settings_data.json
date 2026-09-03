@@ -105,6 +105,14 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
+    "sections": {
+      "labelm-homepage": {
+        "type": "labelm-homepage",
+        "settings": {
+          "featured_collection": "nourish-and-repair"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "10746902591489815047": {
