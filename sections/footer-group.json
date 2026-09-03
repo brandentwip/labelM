@@ -231,7 +231,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "background_color": "{{ settings.color_palette.foreground }}",
+        "background_color": "#161A24",
         "padding-block-start": 30,
         "padding-block-end": 30
       }
