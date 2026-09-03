@@ -86,7 +86,7 @@
       "type": "labelm-launch-banner",
       "custom_css": [
         ".labelm-launch-section {margin-bottom: 0px;}",
-        ".labelm-launch-media {margin-right: 15px;}"
+        ".labelm-launch-media {margin-right: 16px;}"
       ],
       "settings": {
         "heading": "M-Plex Bond Technology",
