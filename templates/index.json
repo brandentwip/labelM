@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "FOUNDATIONAL HAIR HEALTH",
         "heading": "Molecular bond\nscience, bottled.",
-        "description": "Your great hair days are rooted in M-Plex Bond Technology intensively repairing and protecting for noticeably healthier, silky-smooth hair.",
+        "description": "Your great hair days are rooted in M-Plex Bond Technology — intensively repairing and protecting for noticeably healthier, silky-smooth hair.",
         "button_label": "Shop M-Plex",
         "button_link": "shopify://collections/all",
         "image": "shopify://shop_images/2.jpg"
@@ -74,7 +74,9 @@
         "goal_3",
         "goal_4"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".labelm-launch-media {margin-right: 15px;}"
+      ],
       "settings": {
         "kick": "WHAT ARE YOUR HAIR GOALS?",
         "heading": "Your concerns, our solutions"
@@ -83,7 +85,8 @@
     "labelm_launch_banner": {
       "type": "labelm-launch-banner",
       "custom_css": [
-        ".labelm-launch-section {margin-bottom: 0px;}"
+        ".labelm-launch-section {margin-bottom: 0px;}",
+        ".labelm-launch-media {margin-right: 15px;}"
       ],
       "settings": {
         "heading": "M-Plex Bond Technology",
@@ -155,6 +158,7 @@
         "step_4",
         "step_5"
       ],
+      "disabled": true,
       "settings": {
         "kick": "WHAT IS YOUR SIGNATURE STEP-BY-STEP?",
         "heading": "Create your 5-step personalised regime"
