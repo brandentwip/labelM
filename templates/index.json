@@ -26,7 +26,7 @@
         "goal_1": {
           "type": "goal",
           "settings": {
-            "image": "shopify://shop_images/ada456c746af3c4f3c8ba274a48d52aea188189d___media_library_original_1280_711.jpg",
+            "image": "shopify://shop_images/2_32dc8e5a-133a-46fe-8bac-5bab9a4bc124.jpg",
             "title": "Healthy Hair & Scalp",
             "subtitle": "For everyday use",
             "link": "",
@@ -37,6 +37,7 @@
         "goal_2": {
           "type": "goal",
           "settings": {
+            "image": "shopify://shop_images/3.jpg",
             "title": "Nourish & Repair",
             "subtitle": "For dry & damaged hair",
             "link": "",
@@ -47,6 +48,7 @@
         "goal_3": {
           "type": "goal",
           "settings": {
+            "image": "shopify://shop_images/1_bc1faa82-9301-48bb-9313-aaaf7513ac08.jpg",
             "title": "Colour Care",
             "subtitle": "For blonde & coloured hair",
             "link": "",
@@ -57,6 +59,7 @@
         "goal_4": {
           "type": "goal",
           "settings": {
+            "image": "shopify://shop_images/4.jpg",
             "title": "Curl Control & Smooth",
             "subtitle": "For curls & anti-frizz",
             "link": "",
