@@ -1,0 +1,14 @@
+{% comment %}
+  Reusable Label.M section header.
+  Accepts: kick, heading, heading_tag (default h2), extra_class
+{% endcomment %}
+
+<div class="labelm-sec-head{% if extra_class != blank %} {{ extra_class }}{% endif %}">
+  {%- if kick != blank -%}
+    <p class="kick">{{ kick }}</p>
+  {%- endif -%}
+  {%- if heading != blank -%}
+    {%- assign tag = heading_tag | default: 'h2' -%}
+    <{{ tag }}>{{ heading }}</{{ tag }}>
+  {%- endif -%}
+</div>

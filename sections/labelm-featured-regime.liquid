@@ -1,0 +1,194 @@
+<section class="labelm-section" id="labelm-featured-{{ section.id }}">
+  <div class="labelm-container">
+    {% render 'labelm-sec-head',
+      kick: section.settings.kick,
+      heading: section.settings.heading
+    %}
+
+    <div class="labelm-products-grid">
+      {%- assign featured_collection = collections[section.settings.collection] -%}
+
+      {%- if featured_collection != blank and featured_collection.products.size > 0 -%}
+        {%- for product in featured_collection.products limit: section.settings.products_to_show -%}
+          <a href="{{ product.url }}" class="labelm-product-card">
+            {%- if section.settings.show_badge -%}
+              {%- if product.compare_at_price > product.price -%}
+                <span class="labelm-badge">Sale</span>
+              {%- endif -%}
+            {%- endif -%}
+
+            <div class="labelm-product-img">
+              {%- if product.featured_image != blank -%}
+                {{
+                  product.featured_image
+                  | image_url: width: 400
+                  | image_tag: loading: 'lazy', alt: product.title
+                }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+
+            <h5>{{ product.title }}</h5>
+
+            {%- if section.settings.show_rating -%}
+              <div class="labelm-stars" aria-hidden="true">★★★★★</div>
+            {%- endif -%}
+
+            <div class="labelm-price">
+              {%- if product.compare_at_price > product.price -%}
+                <span class="labelm-price-compare">{{ product.compare_at_price | money }}</span>
+              {%- endif -%}
+              {{ product.price | money }}
+            </div>
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <div class="labelm-product-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.badge != blank -%}
+              <span class="labelm-badge">{{ block.settings.badge }}</span>
+            {%- endif -%}
+
+            <div class="labelm-product-img">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 400
+                  | image_tag: loading: 'lazy', alt: block.settings.title
+                }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+
+            <h5>{{ block.settings.title }}</h5>
+
+            {%- if section.settings.show_rating -%}
+              <div class="labelm-stars" aria-hidden="true">★★★★★</div>
+            {%- endif -%}
+
+            {%- if block.settings.price != blank -%}
+              <div class="labelm-price">{{ block.settings.price }}</div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Featured Regime",
+  "tag": "section",
+  "class": "labelm-featured-regime-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "kick",
+      "label": "Eyebrow",
+      "default": "NOURISH & REPAIR — HEALTHY HAIR & SCALP"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured regime"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show star rating",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show product badges",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Placeholder product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Product name"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "Rs. 1,800"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Featured Regime",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "title": "Honey & Oat Moisturising Shampoo",
+            "price": "Rs. 1,800"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "Honey & Oat Moisturising Conditioner",
+            "price": "Rs. 2,000"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "M-Plex Bond Repairing Shampoo",
+            "price": "Rs. 1,950",
+            "badge": "NEW"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "title": "M-Plex Bond Repairing Miracle Mask",
+            "price": "Rs. 2,400"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

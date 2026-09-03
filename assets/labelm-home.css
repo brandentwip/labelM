@@ -21,7 +21,8 @@
   --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base resets for custom homepage wrapper */
+/* Base resets for Label.M homepage sections */
+.labelm-section,
 .labelm-home-root {
   box-sizing: border-box;
   margin: 0;
@@ -36,6 +37,21 @@
   overflow-x: hidden;
 }
 
+.labelm-section.labelm-promo-bar,
+.labelm-promo-bar.labelm-section {
+  background-color: var(--navy);
+  overflow-x: visible;
+}
+
+.labelm-section.labelm-hero,
+.labelm-hero.labelm-section {
+  background: linear-gradient(120deg, #20242e 0%, #14161b 100%);
+  overflow: hidden;
+}
+
+.labelm-section *,
+.labelm-section *::before,
+.labelm-section *::after,
 .labelm-home-root *,
 .labelm-home-root *::before,
 .labelm-home-root *::after {
@@ -437,6 +453,10 @@
   text-align: center;
 }
 
+.labelm-sec-head--compact-top {
+  padding-top: 0;
+}
+
 .labelm-sec-head .kick {
   color: var(--gold-dark);
   font-size: 11.5px;
@@ -490,17 +510,28 @@
   overflow: hidden;
 }
 
-.labelm-goal-card:nth-child(1) .labelm-goal-thumb {
+.labelm-goal-card:nth-child(1) .labelm-goal-thumb:not(:has(.labelm-goal-thumb-img)) {
   background: linear-gradient(135deg, #c9a5ae, #a86b7a);
 }
-.labelm-goal-card:nth-child(2) .labelm-goal-thumb {
+.labelm-goal-card:nth-child(2) .labelm-goal-thumb:not(:has(.labelm-goal-thumb-img)) {
   background: linear-gradient(135deg, #a8b8a0, #6f8a68);
 }
-.labelm-goal-card:nth-child(3) .labelm-goal-thumb {
+.labelm-goal-card:nth-child(3) .labelm-goal-thumb:not(:has(.labelm-goal-thumb-img)) {
   background: linear-gradient(135deg, #c9b98f, #a8895a);
 }
-.labelm-goal-card:nth-child(4) .labelm-goal-thumb {
+.labelm-goal-card:nth-child(4) .labelm-goal-thumb:not(:has(.labelm-goal-thumb-img)) {
   background: linear-gradient(135deg, #b0a8c4, #8574a8);
+}
+
+.labelm-goal-card[style*="--goal-c1"] .labelm-goal-thumb:not(:has(.labelm-goal-thumb-img)) {
+  background: linear-gradient(135deg, var(--goal-c1), var(--goal-c2));
+}
+
+.labelm-goal-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .labelm-goal-thumb::after {
@@ -687,6 +718,13 @@
   font-weight: 700;
   color: var(--navy);
   margin-top: auto;
+}
+
+.labelm-price-compare {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-weight: 400;
+  margin-right: 6px;
 }
 
 /* ==========================================================================

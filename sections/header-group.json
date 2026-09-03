@@ -11,6 +11,13 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "labelm_promo_bar": {
+      "type": "labelm-promo-bar",
+      "settings": {
+        "text": "FREE LUXURY GIFT WHEN YOU SPEND ₹4,000+",
+        "text_2": "MIX & MATCH ON LABEL.M MINIS"
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -96,6 +103,7 @@
     }
   },
   "order": [
+    "labelm_promo_bar",
     "header_section"
   ]
 }

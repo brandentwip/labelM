@@ -1,0 +1,39 @@
+<section class="labelm-section labelm-promo-bar" id="labelm-promo-{{ section.id }}">
+  {%- if section.settings.text != blank -%}
+    <span>{{ section.settings.text }}</span>
+  {%- endif -%}
+  {%- if section.settings.text_2 != blank -%}
+    {%- if section.settings.text != blank -%}
+      <span aria-hidden="true">·</span>
+    {%- endif -%}
+    <span>{{ section.settings.text_2 }}</span>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Promo Bar",
+  "tag": "section",
+  "class": "labelm-promo-bar-section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Primary message",
+      "default": "FREE LUXURY GIFT WHEN YOU SPEND ₹4,000+"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Secondary message",
+      "default": "MIX & MATCH ON LABEL.M MINIS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Promo Bar"
+    }
+  ]
+}
+{% endschema %}

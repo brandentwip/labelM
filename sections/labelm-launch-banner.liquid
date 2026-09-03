@@ -1,0 +1,80 @@
+<section class="labelm-section labelm-launch-section" id="labelm-launch-{{ section.id }}">
+  <div class="labelm-container">
+    <div class="labelm-launch-banner">
+      <div class="labelm-launch-content">
+        {%- if section.settings.heading != blank -%}
+          <h3>{{ section.settings.heading }}</h3>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <p>{{ section.settings.description }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+            class="labelm-outline-btn"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <div class="labelm-launch-media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 600
+            | image_tag: loading: 'lazy', alt: section.settings.heading
+          }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Launch Banner",
+  "tag": "section",
+  "class": "labelm-launch-banner-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "M-Plex Bond Technology"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "A bonding revolution. Intensively repairs and protects disulphide bonds for noticeably healthier, luxurious silky-smooth hair."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner image",
+      "info": "Recommended: 600×400px."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Launch Banner"
+    }
+  ]
+}
+{% endschema %}

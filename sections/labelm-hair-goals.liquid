@@ -1,0 +1,143 @@
+<section class="labelm-section" id="labelm-goals-{{ section.id }}">
+  <div class="labelm-container">
+    {% render 'labelm-sec-head',
+      kick: section.settings.kick,
+      heading: section.settings.heading
+    %}
+
+    <div class="labelm-goals-grid">
+      {%- for block in section.blocks -%}
+        <a
+          href="{{ block.settings.link | default: '#' }}"
+          class="labelm-goal-card labelm-goal-card--{{ forloop.index }}"
+          {{ block.shopify_attributes }}
+          style="--goal-c1: {{ block.settings.color_1 }}; --goal-c2: {{ block.settings.color_2 }};"
+        >
+          <div class="labelm-goal-thumb">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', alt: block.settings.title, class: 'labelm-goal-thumb-img'
+              }}
+            {%- endif -%}
+          </div>
+          <div class="labelm-goal-text">
+            <h4>{{ block.settings.title }}</h4>
+            {%- if block.settings.subtitle != blank -%}
+              <span>{{ block.settings.subtitle }}</span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Hair Goals",
+  "tag": "section",
+  "class": "labelm-hair-goals-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "text",
+      "id": "kick",
+      "label": "Eyebrow",
+      "default": "WHAT ARE YOUR HAIR GOALS?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Your concerns, our solutions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "goal",
+      "name": "Hair goal",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Healthy Hair & Scalp"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "For everyday use"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "color_1",
+          "label": "Gradient start",
+          "default": "#c9a5ae"
+        },
+        {
+          "type": "color",
+          "id": "color_2",
+          "label": "Gradient end",
+          "default": "#a86b7a"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Hair Goals",
+      "blocks": [
+        {
+          "type": "goal",
+          "settings": {
+            "title": "Healthy Hair & Scalp",
+            "subtitle": "For everyday use",
+            "color_1": "#c9a5ae",
+            "color_2": "#a86b7a"
+          }
+        },
+        {
+          "type": "goal",
+          "settings": {
+            "title": "Nourish & Repair",
+            "subtitle": "For dry & damaged hair",
+            "color_1": "#a8b8a0",
+            "color_2": "#6f8a68"
+          }
+        },
+        {
+          "type": "goal",
+          "settings": {
+            "title": "Colour Care",
+            "subtitle": "For blonde & coloured hair",
+            "color_1": "#c9b98f",
+            "color_2": "#a8895a"
+          }
+        },
+        {
+          "type": "goal",
+          "settings": {
+            "title": "Curl Control & Smooth",
+            "subtitle": "For curls & anti-frizz",
+            "color_1": "#b0a8c4",
+            "color_2": "#8574a8"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

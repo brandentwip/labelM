@@ -1,0 +1,92 @@
+<section class="labelm-section labelm-hero" id="labelm-hero-{{ section.id }}">
+  <div class="labelm-container labelm-hero-inner">
+    <div class="labelm-hero-content">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="labelm-eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1>{{ section.settings.heading | newline_to_br }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p>{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a
+          href="{{ section.settings.button_link | default: routes.all_products_collection_url }}"
+          class="labelm-cta-btn"
+        >
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="labelm-hero-visual">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 1400
+        | image_tag:
+          loading: 'eager',
+          widths: '600,900,1200,1400',
+          sizes: '(min-width: 990px) 55vw, 100vw',
+          alt: section.settings.image.alt | default: section.settings.heading
+      }}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Hero",
+  "tag": "section",
+  "class": "labelm-hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "FOUNDATIONAL HAIR HEALTH"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Molecular bond\nscience, bottled."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Your great hair days are rooted in M-Plex Bond Technology — intensively repairing and protecting for noticeably healthier, silky-smooth hair."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop M-Plex"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image",
+      "info": "Recommended: 1200×800px or larger."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,124 @@
+<section class="labelm-section" id="labelm-steps-{{ section.id }}">
+  <div class="labelm-container">
+    <div class="labelm-steps-card">
+      <div class="labelm-steps-head">
+        {%- if section.settings.kick != blank -%}
+          <p class="kick">{{ section.settings.kick }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h3>{{ section.settings.heading }}</h3>
+        {%- endif -%}
+      </div>
+
+      <div class="labelm-steps-row">
+        {%- for block in section.blocks -%}
+          <div class="labelm-step-item" {{ block.shopify_attributes }}>
+            <div class="labelm-step-number">{{ block.settings.number }}</div>
+            <div>
+              <h5>{{ block.settings.title }}</h5>
+              {%- if block.settings.description != blank -%}
+                <p>{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Label.M Regime Steps",
+  "tag": "section",
+  "class": "labelm-regime-steps-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "text",
+      "id": "kick",
+      "label": "Eyebrow",
+      "default": "WHAT IS YOUR SIGNATURE STEP-BY-STEP?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Create your 5-step personalised regime"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Step number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cleanse"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "10 shampoos by hair type, prepped for care & styling."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Regime Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Cleanse",
+            "description": "10 shampoos by hair type, prepped for care & styling."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Condition",
+            "description": "Bespoke conditioners to hydrate & strengthen."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Care",
+            "description": "Bond technology to repair, nourish & elevate."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "04",
+            "title": "Create",
+            "description": "Styling products to define your desired look."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "number": "05",
+            "title": "Complete",
+            "description": "Finishing touches for lasting hold & shine."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

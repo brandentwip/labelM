@@ -1,0 +1,13 @@
+{% comment %}
+  Shared section header for Label.M homepage sections.
+  Accepts: kick, heading, compact (optional boolean)
+{% endcomment %}
+
+<div class="labelm-sec-head{% if compact %} labelm-sec-head--compact{% endif %}">
+  {%- if kick != blank -%}
+    <p class="kick">{{ kick }}</p>
+  {%- endif -%}
+  {%- if heading != blank -%}
+    <h2>{{ heading }}</h2>
+  {%- endif -%}
+</div>
