@@ -89,7 +89,8 @@
         "heading": "M-Plex Bond Technology",
         "description": "A bonding revolution. Intensively repairs and protects disulphide bonds for noticeably healthier, luxurious silky-smooth hair.",
         "button_label": "Shop Now",
-        "button_link": "shopify://collections/all"
+        "button_link": "shopify://collections/all",
+        "image": "shopify://shop_images/Launch_Banner_jpg.jpg"
       }
     },
     "labelm_featured_regime": {
