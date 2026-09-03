@@ -72,7 +72,7 @@
         "goal_4"
       ],
       "custom_css": [
-        ".labelm-goals-grid {display: flex; grid-template-columns: repeat(4, 1fr); gap: 26px; }"
+        ".labelm-goals-grid {display: flex; grid-template-columns: repeat(4, 1fr); gap: 26px;}"
       ],
       "settings": {
         "kick": "WHAT ARE YOUR HAIR GOALS?",
@@ -150,6 +150,7 @@
         "step_4",
         "step_5"
       ],
+      "disabled": true,
       "settings": {
         "kick": "WHAT IS YOUR SIGNATURE STEP-BY-STEP?",
         "heading": "Create your 5-step personalised regime"
