@@ -26,6 +26,7 @@
         "goal_1": {
           "type": "goal",
           "settings": {
+            "image": "shopify://shop_images/ada456c746af3c4f3c8ba274a48d52aea188189d___media_library_original_1280_711.jpg",
             "title": "Healthy Hair & Scalp",
             "subtitle": "For everyday use",
             "link": "",
