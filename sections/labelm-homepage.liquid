@@ -1,0 +1,414 @@
+{% comment %}
+  Label.M — Luxury Responsive Homepage Section
+  Contains: Promo bar, Header, Hero, Goals, Launch Banner,
+  Featured Products, 5-Step Regime, Category Cards, Footer
+{% endcomment %}
+
+<div class="labelm-home-root" id="labelm-home">
+
+  <!-- ═══════════════════════════════════════════════════════
+       ANNOUNCEMENT / PROMO BAR
+       ═══════════════════════════════════════════════════════ -->
+  <div class="labelm-promo-bar">
+    <span>FREE SHIPPING ON ORDERS OVER ₹999</span>
+    <span>·</span>
+    <span>USE CODE <strong>LABELM15</strong> FOR 15% OFF</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION HEADER
+       ═══════════════════════════════════════════════════════ -->
+  <header class="labelm-header" id="labelm-header">
+    <div class="labelm-container labelm-nav-inner">
+
+      <!-- Mobile Hamburger -->
+      <button class="labelm-mobile-toggle" id="labelm-menu-open" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+
+      <!-- Logo -->
+      <a href="/" class="labelm-logo">LABEL.M</a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="labelm-nav-links">
+        <li><a href="/collections/all">Haircare</a></li>
+        <li><a href="/collections">Shop by Regime</a></li>
+        <li><a href="/pages/about">About</a></li>
+        <li><a href="/pages/salon-finder">Salon Finder</a></li>
+        <li><a href="/collections/sale">Sale</a></li>
+      </ul>
+
+      <!-- Action Icons -->
+      <div class="labelm-nav-actions">
+        <!-- Search -->
+        <button class="labelm-icon-btn" aria-label="Search" onclick="document.querySelector('search-modal')?.show?.()">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        </button>
+        <!-- Account -->
+        <a href="/account" class="labelm-icon-btn" aria-label="Account">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg>
+        </a>
+        <!-- Cart -->
+        <a href="/cart" class="labelm-icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9H7.5L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 2H2"/></svg>
+          <span class="labelm-cart-badge">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="labelm-drawer-backdrop" id="labelm-drawer-backdrop"></div>
+
+  <!-- Mobile Drawer -->
+  <nav class="labelm-mobile-drawer" id="labelm-mobile-drawer" aria-label="Mobile navigation">
+    <div class="labelm-drawer-header">
+      <span class="labelm-logo" style="font-size:18px;">LABEL.M</span>
+      <button class="labelm-drawer-close" id="labelm-menu-close" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="labelm-drawer-nav">
+      <li><a href="/collections/all">Haircare</a></li>
+      <li><a href="/collections">Shop by Regime</a></li>
+      <li><a href="/pages/about">About</a></li>
+      <li><a href="/pages/salon-finder">Salon Finder</a></li>
+      <li><a href="/collections/sale">Sale</a></li>
+      <li><a href="/account">My Account</a></li>
+    </ul>
+    <div class="labelm-drawer-footer">
+      <p>&copy; {{ 'now' | date: '%Y' }} Label.M — All rights reserved</p>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════════════ -->
+  <section class="labelm-hero">
+    <div class="labelm-container labelm-hero-inner">
+      <div class="labelm-hero-content">
+        <span class="labelm-eyebrow">M-Plex Bond Technology</span>
+        <h1>Science-Led Haircare, Born in the&nbsp;Salon</h1>
+        <p>Performance-led. Ingredient-conscious. Results you can see. Discover our advanced bond-repairing formulas trusted by professionals worldwide.</p>
+        <a href="/collections/all" class="labelm-cta-btn">Shop the Collection</a>
+      </div>
+    </div>
+    <div class="labelm-hero-visual">
+      {%- if section.settings.hero_image != blank -%}
+        <img
+          src="{{ section.settings.hero_image | image_url: width: 1200 }}"
+          alt="{{ section.settings.hero_image.alt | default: 'Label.M hero image' }}"
+          loading="eager"
+          width="1200"
+          height="800"
+        >
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HAIR GOALS SECTION
+       ═══════════════════════════════════════════════════════ -->
+  <section>
+    <div class="labelm-container">
+      <div class="labelm-sec-head">
+        <p class="kick">Personalised Haircare</p>
+        <h2>What Are Your Hair Goals?</h2>
+      </div>
+      <div class="labelm-goals-grid">
+        {% assign goal_titles = 'Repair & Strengthen,Colour Protect,Volume & Body,Smooth & Shine' | split: ',' %}
+        {% assign goal_subtitles = 'M-Plex Bond Technology,Salon-grade protection,Lightweight lift,Anti-frizz control' | split: ',' %}
+        {% assign goal_links = '/collections/repair,/collections/colour-protect,/collections/volume,/collections/smooth' | split: ',' %}
+        {% for i in (0..3) %}
+          <a href="{{ goal_links[i] }}" class="labelm-goal-card">
+            <div class="labelm-goal-thumb"></div>
+            <div class="labelm-goal-text">
+              <h4>{{ goal_titles[i] }}</h4>
+              <span>{{ goal_subtitles[i] }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LAUNCH BANNER — M-PLEX BOND TECHNOLOGY
+       ═══════════════════════════════════════════════════════ -->
+  <section class="labelm-launch-section">
+    <div class="labelm-container">
+      <div class="labelm-launch-banner">
+        <div class="labelm-launch-content">
+          <h3>New: M-Plex Bond Technology</h3>
+          <p>Revolutionary bond-building science that repairs, protects and strengthens hair from the inside out. Clinically proven to reduce breakage by 90% after first use.</p>
+          <a href="/collections/m-plex" class="labelm-outline-btn">Discover M-Plex →</a>
+        </div>
+        <div class="labelm-launch-media">
+          {%- if section.settings.launch_image != blank -%}
+            <img
+              src="{{ section.settings.launch_image | image_url: width: 600 }}"
+              alt="{{ section.settings.launch_image.alt | default: 'M-Plex Bond Technology' }}"
+              loading="lazy"
+              width="600"
+              height="400"
+            >
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag }}
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURED REGIME — PRODUCT CARDS
+       ═══════════════════════════════════════════════════════ -->
+  <section>
+    <div class="labelm-container">
+      <div class="labelm-sec-head">
+        <p class="kick">Best Sellers</p>
+        <h2>Featured Regime</h2>
+      </div>
+      <div class="labelm-products-grid">
+        {% assign featured_collection = section.settings.featured_collection | default: 'frontpage' %}
+        {% assign collection = collections[featured_collection] %}
+        {% if collection.products.size > 0 %}
+          {% for product in collection.products limit: 4 %}
+            <a href="{{ product.url }}" class="labelm-product-card">
+              {% if product.compare_at_price > product.price %}
+                <span class="labelm-badge">Sale</span>
+              {% elsif forloop.first %}
+                <span class="labelm-badge">Best Seller</span>
+              {% endif %}
+              <div class="labelm-product-img">
+                {% if product.featured_image != blank %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 400 }}"
+                    alt="{{ product.featured_image.alt | default: product.title }}"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                  >
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag }}
+                {% endif %}
+              </div>
+              <h5>{{ product.title }}</h5>
+              <div class="labelm-stars">★★★★★</div>
+              <div class="labelm-price">
+                {% if product.compare_at_price > product.price %}
+                  <span style="text-decoration:line-through;color:var(--muted);font-weight:400;margin-right:6px;">{{ product.compare_at_price | money }}</span>
+                {% endif %}
+                {{ product.price | money }}
+              </div>
+            </a>
+          {% endfor %}
+        {% else %}
+          <!-- Fallback static cards when no collection is configured -->
+          {% for i in (1..4) %}
+            <div class="labelm-product-card">
+              {% if i == 1 %}<span class="labelm-badge">Best Seller</span>{% endif %}
+              <div class="labelm-product-img">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </div>
+              <h5>Product {{ i }}</h5>
+              <div class="labelm-stars">★★★★★</div>
+              <div class="labelm-price">Rs. 1,200.00</div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       5-STEP SIGNATURE REGIME
+       ═══════════════════════════════════════════════════════ -->
+  <section>
+    <div class="labelm-container">
+      <div class="labelm-steps-card">
+        <div class="labelm-steps-head">
+          <p class="kick">Your Routine</p>
+          <h3>5-Step Personalised Regime</h3>
+        </div>
+        <div class="labelm-steps-row">
+          {% assign step_nums = '01,02,03,04,05' | split: ',' %}
+          {% assign step_titles = 'Cleanse,Condition,Treat,Style,Complete' | split: ',' %}
+          {% assign step_descs = 'Gently remove build-up with our sulphate-free shampoos,Hydrate and detangle with lightweight conditioners,Target specific concerns with bond-repairing treatments,Shape and hold with salon-grade styling products,Seal and protect with finishing sprays and serums' | split: ',' %}
+          {% for i in (0..4) %}
+            <div class="labelm-step-item">
+              <div class="labelm-step-number">{{ step_nums[i] }}</div>
+              <div>
+                <h5>{{ step_titles[i] }}</h5>
+                <p>{{ step_descs[i] }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       SHOP BY CATEGORY — OFFER CARDS
+       ═══════════════════════════════════════════════════════ -->
+  <section>
+    <div class="labelm-container">
+      <div class="labelm-sec-head">
+        <p class="kick">Curated Sets</p>
+        <h2>Shop by Category</h2>
+      </div>
+      <div class="labelm-cat-grid">
+        {% assign cat_titles = 'M-Plex Repair Set,Blonde Revive Set,Restorative Mask Set,Complete Regime Kit' | split: ',' %}
+        {% assign cat_prices = 'Rs. 3,200 → Rs. 2,560,Rs. 2,800 → Rs. 2,380,Rs. 4,800 → Rs. 4,080,Rs. 6,500 → Rs. 5,200' | split: ',' %}
+        {% assign cat_offs = '20% OFF,15% OFF,15% OFF,20% OFF' | split: ',' %}
+        {% assign cat_links = '/collections/m-plex,/collections/blonde,/collections/masks,/collections/complete-regime' | split: ',' %}
+        {% for i in (0..3) %}
+          <a href="{{ cat_links[i] }}" class="labelm-cat-card c{{ forloop.index }}">
+            <div class="labelm-cat-bg"></div>
+            <span class="labelm-cat-off">{{ cat_offs[i] }}</span>
+            <div class="labelm-cat-txt">
+              <h5>{{ cat_titles[i] }}</h5>
+              <span>{{ cat_prices[i] }}</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LUXURY FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="labelm-footer">
+    <div class="labelm-container">
+      <div class="labelm-foot-grid">
+
+        <!-- Brand Column -->
+        <div class="labelm-foot-col">
+          <div class="labelm-foot-brand">LABEL.M</div>
+          <p>Performance-led. Ingredient-conscious. Results you can see. Born in the salon, perfected by experts since 1963.</p>
+        </div>
+
+        <!-- Shop Column -->
+        <div class="labelm-foot-col">
+          <h6>Shop</h6>
+          <ul>
+            <li><a href="/collections/all">Haircare</a></li>
+            <li><a href="/collections">Shop by Regime</a></li>
+            <li><a href="/collections/sale">Sale</a></li>
+            <li><a href="/pages/salon-finder">Salon Finder</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care Column -->
+        <div class="labelm-foot-col">
+          <h6>Customer Care</h6>
+          <ul>
+            <li><a href="/pages/contact">Contact Us</a></li>
+            <li><a href="/pages/faq">FAQ's</a></li>
+            <li><a href="/policies/shipping-policy">Shipping</a></li>
+            <li><a href="/policies/refund-policy">Returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="labelm-foot-col">
+          <h6>Join Our List</h6>
+          <p class="labelm-signup-desc">Exclusive deals and early access to new products.</p>
+          <form class="labelm-signup-form" action="/contact#contact_form" method="post">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="utf8" value="✓">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="Email address"
+              required
+              autocomplete="email"
+            >
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="labelm-foot-bottom">
+        <span>&copy; {{ 'now' | date: '%Y' }} LABEL.M · <a href="/policies/privacy-policy">Privacy Policy</a> · <a href="/policies/terms-of-service">Terms &amp; Conditions</a></span>
+        <span>
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a> ·
+          <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — Header Scroll, Mobile Drawer
+     ═══════════════════════════════════════════════════════ -->
+<script>
+  (function() {
+    // Sticky header scroll effect
+    const header = document.getElementById('labelm-header');
+    if (header) {
+      window.addEventListener('scroll', function() {
+        header.classList.toggle('is-scrolled', window.scrollY > 40);
+      }, { passive: true });
+    }
+
+    // Mobile drawer toggle
+    const openBtn = document.getElementById('labelm-menu-open');
+    const closeBtn = document.getElementById('labelm-menu-close');
+    const drawer = document.getElementById('labelm-mobile-drawer');
+    const backdrop = document.getElementById('labelm-drawer-backdrop');
+
+    function openDrawer() {
+      drawer?.classList.add('is-open');
+      backdrop?.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer?.classList.remove('is-open');
+      backdrop?.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    openBtn?.addEventListener('click', openDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Label.M Homepage",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero background image",
+      "info": "Recommended: 1200×800px or larger. Displays on the right side of the hero."
+    },
+    {
+      "type": "image_picker",
+      "id": "launch_image",
+      "label": "Launch banner image",
+      "info": "Recommended: 600×400px. Used in the M-Plex Bond Technology banner."
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured products collection",
+      "info": "Select a collection to feature in the 'Featured Regime' section. Defaults to 'frontpage'."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Label.M Homepage"
+    }
+  ]
+}
+{% endschema %}

@@ -1,30 +1,9 @@
 {% comment %}
-  Home page template inspired by OLAPLEX
+  Label.M — Custom Homepage Template
+  Uses the dedicated layout (no default header/footer)
+  and renders the full labelm-homepage section.
 {% endcomment %}
 
-{% layout 'theme' %}
+{% layout 'theme.home' %}
 
-{% section 'hero' %}
-
-<div class="hero-section">
-  <div class="hero-content fade-in-up">
-    <h1>Welcome to LabelM</h1>
-    <p>Discover premium hair care solutions.</p>
-    <a href="/collections/all" class="btn-primary">Shop Now</a>
-  </div>
-</div>
-
-{% endsection %}
-
-<div class="product-grid fade-in-up">
-  {% assign collection = collections['frontpage'] %}
-  {% if collection.products.size > 0 %}
-    {% for product in collection.products limit: 12 %}
-      {% render 'product-card', product: product %}
-    {% endfor %}
-  {% else %}
-    <p>No products found.</p>
-  {% endif %}
-</div>
-
-{% section 'footer' %}
+{% section 'labelm-homepage' %}
