@@ -106,7 +106,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "text_color": "#C9A961",
+                "text_color": "#c9a961",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -331,7 +331,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 20,
-        "background_color": "{{ settings.color_palette.foreground }}",
+        "background_color": "#161A24",
         "padding-block-start": 30,
         "padding-block-end": 30
       }
