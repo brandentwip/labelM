@@ -699,8 +699,26 @@
           body: new URLSearchParams(new FormData(form))
         });
         if (!response.ok) throw new Error('Add failed');
+        const item = await response.json();
+
         button.textContent = 'Added';
-        document.dispatchEvent(new CustomEvent('cart:updated'));
+
+        // Horizon's cart drawer / cart-icon-bubble listen for this specific
+        // event name + shape on document. Dispatching a generic "cart:updated"
+        // event (as before) does nothing in Horizon, which is why the
+        // drawer/count only refreshed after a full page reload.
+        document.dispatchEvent(
+          new CustomEvent('cart:update', {
+            bubbles: true,
+            detail: {
+              data: {
+                itemCount: item.quantity,
+                source: 'product-form-component'
+              }
+            }
+          })
+        );
+
         setTimeout(() => {
           button.textContent = original;
           button.disabled = false;
