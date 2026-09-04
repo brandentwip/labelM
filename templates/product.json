@@ -135,7 +135,7 @@
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h5",
+                    "type_preset": "h3",
                     "font": "var(--font-primary--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -153,13 +153,26 @@
                   },
                   "blocks": {}
                 },
+                "review_TBPrnb": {
+                  "type": "review",
+                  "name": "t:names.product_review_stars",
+                  "settings": {
+                    "stars_style": "shaded",
+                    "show_number": true,
+                    "text_color": "",
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "left"
+                  },
+                  "blocks": {}
+                },
                 "price_tVjtKg": {
                   "type": "price",
                   "settings": {
                     "show_sale_price_first": true,
                     "show_installments": false,
-                    "show_tax_info": false,
-                    "type_preset": "paragraph",
+                    "show_tax_info": true,
+                    "type_preset": "h4",
                     "width": "100%",
                     "alignment": "left",
                     "font": "var(--font-body--family)",
@@ -174,11 +187,39 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {}
+                },
+                "text_Gzzjry": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>This luxurious, nourishing conditioner featuring real Microfine Diamonds boosts natural movement and creates weightless body while protecting against thermal damage.</p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "text_xrnftG",
-                "price_tVjtKg"
+                "review_TBPrnb",
+                "price_tVjtKg",
+                "text_Gzzjry"
               ]
             },
             "buy_buttons_eYQEYi": {
@@ -212,12 +253,12 @@
                   "type": "quantity",
                   "static": true,
                   "settings": {
-                    "input_style": "default",
+                    "input_style": "custom",
                     "input_background_color": "{{ settings.color_palette.background }}",
                     "input_text_color": "{{ settings.color_palette.foreground }}",
-                    "input_border_color": "{{ settings.color_palette.foreground }}",
+                    "input_border_color": "{{ settings.color_palette.color2 }}",
                     "border_width": 1,
-                    "border_radius": 0
+                    "border_radius": 8
                   },
                   "blocks": {}
                 },
@@ -806,7 +847,7 @@
         "limit_details_width": false,
         "gap": 40,
         "enable_sticky_add_to_cart": true,
-        "background_color": "#F7F4EE",
+        "background_color": "#f7f4ee",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
