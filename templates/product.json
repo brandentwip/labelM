@@ -194,7 +194,7 @@
                   "settings": {
                     "text": "<p>This luxurious, nourishing conditioner featuring real Microfine Diamonds boosts natural movement and creates weightless body while protecting against thermal damage.</p>",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
