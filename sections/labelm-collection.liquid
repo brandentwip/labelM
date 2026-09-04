@@ -620,7 +620,9 @@
   </div>
 </div>
 
-<script>
+<script type="module">
+import { CartLinesUpdateEvent, CartErrorEvent } from '@shopify/events';
+
 (function() {
   const root = document.querySelector('#shopify-section-{{ section.id }}');
   if (!root) return;
@@ -684,51 +686,115 @@
     });
   });
 
-  root.querySelectorAll('[data-quick-add]').forEach(form => {
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      const button = form.querySelector('button');
-      const original = button.textContent;
-      button.disabled = true;
-      button.textContent = 'Adding…';
+  const getCartItemsSectionIds = () => {
+    const sectionIds = new Set();
+    document.querySelectorAll('cart-items-component[data-section-id]').forEach(component => {
+      if (component.dataset.sectionId) sectionIds.add(component.dataset.sectionId);
+    });
+    return Array.from(sectionIds);
+  };
 
-      try {
-        const response = await fetch('{{ routes.cart_add_url }}.js', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-          body: new URLSearchParams(new FormData(form))
-        });
-        if (!response.ok) throw new Error('Add failed');
-        const item = await response.json();
+  const fetchCart = async () => {
+    const response = await fetch(`${Theme.routes.cart_url}.json`, {
+      headers: { Accept: 'application/json' },
+      credentials: 'same-origin'
+    });
 
-        button.textContent = 'Added';
+    if (!response.ok) throw new Error(`Failed to fetch cart: ${response.status}`);
 
-        // Horizon's cart drawer / cart-icon-bubble listen for this specific
-        // event name + shape on document. Dispatching a generic "cart:updated"
-        // event (as before) does nothing in Horizon, which is why the
-        // drawer/count only refreshed after a full page reload.
-        document.dispatchEvent(
-          new CustomEvent('cart:update', {
-            bubbles: true,
+    return response.json();
+  };
+
+  root.addEventListener('submit', async event => {
+    const target = event.target;
+    const form = target instanceof Element ? target.closest('[data-quick-add]') : null;
+    if (!form || !root.contains(form)) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    const button = form.querySelector('button');
+    if (!button || button.disabled) return;
+
+    const original = button.textContent;
+    const formData = new FormData(form);
+    const variantId = formData.get('id');
+    const itemCount = Number(formData.get('quantity')) || 1;
+    const sectionIds = getCartItemsSectionIds();
+    const deferredEventPromise = CartLinesUpdateEvent.createPromise();
+
+    if (sectionIds.length) {
+      formData.append('sections', sectionIds.join(','));
+      formData.append('sections_url', window.location.pathname);
+    }
+
+    form.dispatchEvent(
+      new CartLinesUpdateEvent({
+        action: 'add',
+        context: 'product',
+        lines: [
+          {
+            merchandiseId: String(variantId),
+            quantity: itemCount
+          }
+        ],
+        promise: deferredEventPromise.promise
+      })
+    );
+
+    button.disabled = true;
+    button.textContent = 'Adding...';
+
+    try {
+      const response = await fetch(Theme.routes.cart_add_url, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData
+      });
+      const item = await response.json();
+
+      if (!response.ok || item.status) {
+        const message = item.message || item.description || 'Add to cart failed';
+        form.dispatchEvent(
+          new CartErrorEvent({
+            error: message,
+            code: 'INVALID',
             detail: {
-              data: {
-                itemCount: item.quantity,
-                source: 'product-form-component'
-              }
+              description: item.description,
+              errors: item.errors
             }
           })
         );
-
-        setTimeout(() => {
-          button.textContent = original;
-          button.disabled = false;
-        }, 1200);
-      } catch (error) {
-        button.textContent = 'View product';
-        button.disabled = false;
+        throw new Error(message);
       }
-    });
-  });
+
+      const cart = await fetchCart();
+
+      deferredEventPromise.resolve({
+        cart: CartLinesUpdateEvent.createCartFromAjaxResponse(cart),
+        detail: {
+          items: cart.items,
+          source: 'labelm-collection',
+          itemCount,
+          sections: item.sections,
+          didError: false
+        }
+      });
+
+      button.textContent = 'Added';
+
+      setTimeout(() => {
+        button.textContent = original;
+        button.disabled = false;
+      }, 1200);
+    } catch (error) {
+      deferredEventPromise.reject(error);
+      button.textContent = 'View product';
+      button.disabled = false;
+    }
+  }, true);
+
 })();
 </script>
 
