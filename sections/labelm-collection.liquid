@@ -1,0 +1,836 @@
+{% comment %}
+  Custom Collection Template — LabelM-inspired
+  Ignores global header/footer. Designed for Shopify OS 2.0.
+{% endcomment %}
+
+{%- liquid
+  assign current_sort = collection.sort_by | default: collection.default_sort_by
+  assign hero_image = section.settings.hero_image | default: collection.image
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --lm-navy: {{ section.settings.navy }};
+    --lm-gold: {{ section.settings.gold }};
+    --lm-gold-dark: {{ section.settings.gold_dark }};
+    --lm-cream: {{ section.settings.cream }};
+    --lm-ink: {{ section.settings.ink }};
+    --lm-muted: {{ section.settings.muted }};
+    --lm-line: {{ section.settings.line }};
+  }
+
+  #shopify-section-{{ section.id }} .lm-collection {
+    background: var(--lm-cream);
+    color: var(--lm-ink);
+  }
+
+  #shopify-section-{{ section.id }} .lm-breadcrumb {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 18px 40px 0;
+    font-size: 12px;
+    color: var(--lm-muted);
+  }
+
+  #shopify-section-{{ section.id }} .lm-breadcrumb a { color: inherit; text-decoration: none; }
+  #shopify-section-{{ section.id }} .lm-breadcrumb strong { color: var(--lm-ink); font-weight: 600; }
+
+  #shopify-section-{{ section.id }} .lm-hero {
+    max-width: 1360px;
+    margin: 18px auto 0;
+    min-height: 260px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #262830;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .lm-hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .lm-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,22,27,.28), rgba(20,22,27,.78));
+  }
+
+  #shopify-section-{{ section.id }} .lm-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 60px 24px;
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .lm-eyebrow {
+    margin: 0 0 9px;
+    color: var(--lm-gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .lm-hero h1 {
+    margin: 0 0 9px;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.08;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .lm-hero-description {
+    margin: 0 auto;
+    max-width: 560px;
+    color: rgba(255,255,255,.86);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  #shopify-section-{{ section.id }} .lm-collection-body {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 235px minmax(0,1fr);
+    gap: 34px;
+    padding: 38px 40px 70px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filters {
+    border-right: 1px solid var(--lm-line);
+    padding-right: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 22px;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-group {
+    border-bottom: 1px solid var(--lm-line);
+    padding: 0 0 20px;
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-title {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--lm-ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-title span:last-child {
+    transition: transform .2s ease;
+    font-size: 17px;
+    font-weight: 300;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-group.is-closed .lm-filter-title span:last-child {
+    transform: rotate(45deg);
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-options {
+    padding-top: 13px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 10px;
+    color: #5d5952;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-option input {
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    accent-color: var(--lm-gold-dark);
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-option a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .lm-filter-option.is-active {
+    color: var(--lm-ink);
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .lm-clear {
+    color: var(--lm-gold-dark);
+    font-size: 11px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-count {
+    color: var(--lm-muted);
+    font-size: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-sort {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-sort label {
+    color: var(--lm-muted);
+    font-size: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-sort select {
+    min-width: 170px;
+    padding: 9px 30px 9px 11px;
+    border: 1px solid var(--lm-line);
+    border-radius: 3px;
+    background: #fff;
+    color: var(--lm-ink);
+    font: inherit;
+    font-size: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-mobile-filter {
+    display: none;
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--lm-line);
+    background: #fff;
+    color: var(--lm-ink);
+    font-size: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 22px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card {
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--lm-line);
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-badge {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    z-index: 3;
+    padding: 5px 8px;
+    background: var(--lm-gold);
+    color: var(--lm-navy);
+    border-radius: 2px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .05em;
+  }
+
+  #shopify-section-{{ section.id }} .lm-wishlist {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: rgba(255,255,255,.72);
+    color: #aaa49a;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-image {
+    display: block;
+    aspect-ratio: 1 / 1.08;
+    overflow: hidden;
+    background: #f2efe7;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    padding: 8%;
+    transition: transform .45s ease;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card:hover .lm-card-image img {
+    transform: scale(1.035);
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-info {
+    padding: 15px 15px 16px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-range {
+    margin-bottom: 5px;
+    color: var(--lm-gold-dark);
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-title {
+    min-height: 36px;
+    margin: 0 0 6px;
+    font-size: 13px;
+    line-height: 1.38;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .lm-card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .lm-stars {
+    margin-bottom: 9px;
+    color: var(--lm-gold-dark);
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-price {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .lm-price s {
+    margin-left: 6px;
+    color: var(--lm-muted);
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .lm-add {
+    width: 100%;
+    margin-top: 11px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 3px;
+    background: var(--lm-navy);
+    color: #fff;
+    cursor: pointer;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .03em;
+    transition: opacity .2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .lm-add:hover { opacity: .9; }
+  #shopify-section-{{ section.id }} .lm-add:disabled { opacity: .45; cursor: not-allowed; }
+
+  #shopify-section-{{ section.id }} .lm-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 42px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-pagination a,
+  #shopify-section-{{ section.id }} .lm-pagination span {
+    min-width: 34px;
+    height: 34px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--lm-line);
+    background: #fff;
+    color: var(--lm-ink);
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .lm-pagination .current {
+    background: var(--lm-navy);
+    border-color: var(--lm-navy);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .lm-collection-body {
+      grid-template-columns: 1fr;
+      padding: 28px 22px 55px;
+    }
+
+    #shopify-section-{{ section.id }} .lm-filters {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      width: min(360px, 92vw);
+      height: 100dvh;
+      overflow-y: auto;
+      padding: 25px 22px;
+      border: 0;
+      background: var(--lm-cream);
+      box-shadow: 20px 0 50px rgba(0,0,0,.18);
+    }
+
+    #shopify-section-{{ section.id }} .lm-filters.is-open { display: block; }
+
+    #shopify-section-{{ section.id }} .lm-mobile-filter { display: block; }
+
+    #shopify-section-{{ section.id }} .lm-grid {
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    #shopify-section-{{ section.id }} .lm-breadcrumb { padding: 14px 16px 0; font-size: 11px; }
+    #shopify-section-{{ section.id }} .lm-hero { margin-top: 12px; min-height: 220px; }
+    #shopify-section-{{ section.id }} .lm-hero-content { padding: 48px 20px; }
+    #shopify-section-{{ section.id }} .lm-hero h1 { font-size: 30px; }
+    #shopify-section-{{ section.id }} .lm-hero-description { font-size: 12.5px; }
+    #shopify-section-{{ section.id }} .lm-collection-body { padding: 22px 16px 45px; gap: 14px; }
+    #shopify-section-{{ section.id }} .lm-toolbar { align-items: stretch; flex-direction: column; }
+    #shopify-section-{{ section.id }} .lm-sort { justify-content: space-between; }
+    #shopify-section-{{ section.id }} .lm-sort select { flex: 1; }
+    #shopify-section-{{ section.id }} .lm-grid { gap: 12px; }
+    #shopify-section-{{ section.id }} .lm-card-info { padding: 12px; }
+    #shopify-section-{{ section.id }} .lm-card-title { font-size: 12px; min-height: 34px; }
+    #shopify-section-{{ section.id }} .lm-add { padding: 9px 6px; }
+  }
+</style>
+
+<div class="lm-collection">
+  {% if section.settings.show_breadcrumbs %}
+    <div class="lm-breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span aria-hidden="true"> / </span>
+      {% if collection.metafields.custom.breadcrumb_parent != blank %}
+        <span>{{ collection.metafields.custom.breadcrumb_parent }}</span>
+        <span aria-hidden="true"> / </span>
+      {% endif %}
+      <strong>{{ collection.title }}</strong>
+    </div>
+  {% endif %}
+
+  <section class="lm-hero">
+    {% if hero_image %}
+      {{ hero_image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '750,1100,1500,1800', sizes: '100vw', alt: hero_image.alt | default: collection.title }}
+    {% endif %}
+    <div class="lm-hero-overlay"></div>
+    <div class="lm-hero-content">
+      {% if section.settings.eyebrow != blank %}
+        <p class="lm-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      <h1>{{ section.settings.title | default: collection.title }}</h1>
+      {% if section.settings.description != blank %}
+        <div class="lm-hero-description">{{ section.settings.description }}</div>
+      {% elsif collection.description != blank %}
+        <div class="lm-hero-description">{{ collection.description }}</div>
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="lm-collection-body">
+    <aside class="lm-filters" id="LMFilters-{{ section.id }}">
+      <div class="lm-filter-heading">
+        <span>Filter by</span>
+        {% if collection.filters %}
+          <a class="lm-clear" href="{{ collection.url }}">Clear all</a>
+        {% endif %}
+      </div>
+
+      {% for filter in collection.filters %}
+        {% assign active_count = filter.active_values.size %}
+        <div class="lm-filter-group{% if active_count == 0 %} is-open{% endif %}">
+          <button type="button" class="lm-filter-title" aria-expanded="{% if active_count == 0 %}true{% else %}false{% endif %}">
+            <span>{{ filter.label }}</span>
+            <span>+</span>
+          </button>
+
+          <div class="lm-filter-options">
+            {% case filter.type %}
+              {% when 'boolean' %}
+                {% if filter.true_value %}
+                  <label class="lm-filter-option{% if filter.true_value.active %} is-active{% endif %}">
+                    <input type="checkbox" {% if filter.true_value.active %}checked{% endif %}
+                      data-filter-url="{{ filter.true_value.url_to_add }}"
+                      data-filter-remove-url="{{ filter.true_value.url_to_remove }}">
+                    {{ filter.true_value.label }}
+                  </label>
+                {% endif %}
+              {% when 'list' %}
+                {% for value in filter.values %}
+                  <label class="lm-filter-option{% if value.active %} is-active{% endif %}">
+                    <input type="checkbox"
+                      {% if value.active %}checked{% endif %}
+                      data-filter-url="{{ value.url_to_add }}"
+                      data-filter-remove-url="{{ value.url_to_remove }}">
+                    {{ value.label }}{% if value.count %} ({{ value.count }}){% endif %}
+                  </label>
+                {% endfor %}
+              {% when 'price_range' %}
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                  <input type="number" min="0" placeholder="Min"
+                    value="{% if filter.min_value.value %}{{ filter.min_value.value | money_without_currency | replace: ',', '' }}{% endif %}"
+                    data-price-min style="width:100%;padding:9px;border:1px solid var(--lm-line);background:#fff;font-size:12px;">
+                  <input type="number" min="0" placeholder="Max"
+                    value="{% if filter.max_value.value %}{{ filter.max_value.value | money_without_currency | replace: ',', '' }}{% endif %}"
+                    data-price-max style="width:100%;padding:9px;border:1px solid var(--lm-line);background:#fff;font-size:12px;">
+                </div>
+                <button type="button" data-price-apply style="margin-top:9px;padding:8px 10px;border:1px solid var(--lm-navy);background:var(--lm-navy);color:#fff;font-size:11px;cursor:pointer;">
+                  Apply price
+                </button>
+            {% endcase %}
+          </div>
+        </div>
+      {% endfor %}
+    </aside>
+
+    <main>
+      <button type="button" class="lm-mobile-filter" data-open-filters>
+        Filter & Sort
+      </button>
+
+      <div class="lm-toolbar">
+        <span class="lm-count">{{ collection.products_count }} products</span>
+        <form class="lm-sort" method="get">
+          <label for="LMCollectionSort-{{ section.id }}">Sort by</label>
+          <select id="LMCollectionSort-{{ section.id }}" name="sort_by" onchange="this.form.submit()">
+            {% for option in collection.sort_options %}
+              <option value="{{ option.value }}" {% if option.value == current_sort %}selected{% endif %}>
+                {{ option.name }}
+              </option>
+            {% endfor %}
+          </select>
+        </form>
+      </div>
+
+      {% paginate collection.products by section.settings.products_per_page %}
+        {% if collection.products.size > 0 %}
+          <div class="lm-grid">
+            {% for product in collection.products %}
+              <article class="lm-card">
+                {% if section.settings.badge_text != blank and forloop.index <= section.settings.badge_limit %}
+                  <span class="lm-card-badge">{{ section.settings.badge_text }}</span>
+                {% endif %}
+
+                <button type="button" class="lm-wishlist" aria-label="Add {{ product.title }} to wishlist" data-wishlist="{{ product.handle }}">
+                  ♡
+                </button>
+
+                <a class="lm-card-image" href="{{ product.url }}">
+                  {% if product.featured_image %}
+                    {{ product.featured_image | image_url: width: 900 | image_tag:
+                      loading: 'lazy',
+                      widths: '360,540,720,900',
+                      sizes: '(min-width: 901px) 30vw, 50vw',
+                      alt: product.featured_image.alt | default: product.title }}
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                </a>
+
+                <div class="lm-card-info">
+                  {% if section.settings.show_vendor and product.vendor != blank %}
+                    <div class="lm-card-range">{{ product.vendor }}</div>
+                  {% elsif product.type != blank %}
+                    <div class="lm-card-range">{{ product.type }}</div>
+                  {% endif %}
+
+                  <h2 class="lm-card-title">
+                    <a href="{{ product.url }}">{{ product.title }}</a>
+                  </h2>
+
+                  {% if section.settings.show_rating %}
+                    <div class="lm-stars" aria-label="Rating">
+                      {% if product.metafields.reviews.rating.value %}
+                        ★★★★★
+                      {% else %}
+                        ★★★★★
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  <div class="lm-price">
+                    {{ product.price | money }}
+                    {% if product.compare_at_price > product.price %}
+                      <s>{{ product.compare_at_price | money }}</s>
+                    {% endif %}
+                  </div>
+
+                  {% assign card_variant = product.selected_or_first_available_variant %}
+                  <form method="post" action="{{ routes.cart_add_url }}" class="lm-quick-add-form" data-quick-add>
+                    <input type="hidden" name="id" value="{{ card_variant.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button class="lm-add" type="submit" {% unless card_variant.available %}disabled{% endunless %}>
+                      {% if card_variant.available %}Add to bag{% else %}Sold out{% endif %}
+                    </button>
+                  </form>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <nav class="lm-pagination" aria-label="Pagination">
+              {{ paginate | default_pagination }}
+            </nav>
+          {% endif %}
+        {% else %}
+          <div style="padding:60px 0;text-align:center;">
+            <h2 style="font-size:22px;margin:0 0 8px;">No products found</h2>
+            <p style="color:var(--lm-muted);font-size:13px;">Try removing one or more filters.</p>
+          </div>
+        {% endif %}
+      {% endpaginate %}
+    </main>
+  </div>
+</div>
+
+<script>
+(function() {
+  const root = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!root) return;
+
+  root.querySelectorAll('.lm-filter-title').forEach(button => {
+    button.addEventListener('click', () => {
+      const group = button.closest('.lm-filter-group');
+      const options = group.querySelector('.lm-filter-options');
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      group.classList.toggle('is-closed', open);
+      options.hidden = open;
+    });
+  });
+
+  root.querySelectorAll('.lm-filter-group').forEach(group => {
+    const button = group.querySelector('.lm-filter-title');
+    const options = group.querySelector('.lm-filter-options');
+    if (button && button.getAttribute('aria-expanded') === 'false') {
+      options.hidden = true;
+    }
+  });
+
+  root.querySelectorAll('.lm-filter-option input[data-filter-url]').forEach(input => {
+    input.addEventListener('change', () => {
+      window.location.href = input.checked ? input.dataset.filterUrl : input.dataset.filterRemoveUrl;
+    });
+  });
+
+  root.querySelector('[data-price-apply]')?.addEventListener('click', () => {
+    const min = root.querySelector('[data-price-min]')?.value;
+    const max = root.querySelector('[data-price-max]')?.value;
+    const params = new URLSearchParams(window.location.search);
+    if (min) params.set('filter.v.price.gte', min); else params.delete('filter.v.price.gte');
+    if (max) params.set('filter.v.price.lte', max); else params.delete('filter.v.price.lte');
+    window.location.search = params.toString();
+  });
+
+  root.querySelector('[data-open-filters]')?.addEventListener('click', () => {
+    root.querySelector('.lm-filters')?.classList.add('is-open');
+  });
+
+  root.querySelector('.lm-filters')?.addEventListener('click', event => {
+    if (event.target.closest('.lm-filter-heading .lm-clear')) return;
+  });
+
+  root.querySelectorAll('[data-wishlist]').forEach(button => {
+    button.addEventListener('click', () => {
+      const key = 'lm-wishlist';
+      let items = [];
+      try { items = JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) {}
+      const handle = button.dataset.wishlist;
+      if (items.includes(handle)) {
+        items = items.filter(item => item !== handle);
+        button.textContent = '♡';
+      } else {
+        items.push(handle);
+        button.textContent = '♥';
+      }
+      localStorage.setItem(key, JSON.stringify(items));
+    });
+  });
+
+  root.querySelectorAll('[data-quick-add]').forEach(form => {
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = form.querySelector('button');
+      const original = button.textContent;
+      button.disabled = true;
+      button.textContent = 'Adding…';
+
+      try {
+        const response = await fetch('{{ routes.cart_add_url }}.js', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+          body: new URLSearchParams(new FormData(form))
+        });
+        if (!response.ok) throw new Error('Add failed');
+        button.textContent = 'Added';
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+        setTimeout(() => {
+          button.textContent = original;
+          button.disabled = false;
+        }, 1200);
+      } catch (error) {
+        button.textContent = 'View product';
+        button.disabled = false;
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "LabelM Collection",
+  "tag": "section",
+  "class": "section-labelm-collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Hero eyebrow",
+      "default": "Haircare"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero title",
+      "default": "Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Hero description"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "Show breadcrumbs",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Product badge",
+      "default": "BESTSELLER"
+    },
+    {
+      "type": "range",
+      "id": "badge_limit",
+      "label": "Badge first products",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 6,
+      "max": 48,
+      "step": 3,
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "navy",
+      "label": "Navy",
+      "default": "#161A24"
+    },
+    {
+      "type": "color",
+      "id": "gold",
+      "label": "Gold",
+      "default": "#C9A961"
+    },
+    {
+      "type": "color",
+      "id": "gold_dark",
+      "label": "Gold dark",
+      "default": "#A8874A"
+    },
+    {
+      "type": "color",
+      "id": "cream",
+      "label": "Cream",
+      "default": "#F7F4EE"
+    },
+    {
+      "type": "color",
+      "id": "ink",
+      "label": "Text",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "muted",
+      "label": "Muted text",
+      "default": "#8A8580"
+    },
+    {
+      "type": "color",
+      "id": "line",
+      "label": "Borders",
+      "default": "#E8E3D8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "LabelM Collection"
+    }
+  ]
+}
+{% endschema %}
