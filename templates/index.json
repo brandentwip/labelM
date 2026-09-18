@@ -40,7 +40,7 @@
             "image": "shopify://shop_images/3.jpg",
             "title": "Nourish & Repair",
             "subtitle": "For dry & damaged hair",
-            "link": "",
+            "link": "shopify://collections/nourish-and-repair",
             "color_1": "#a8b8a0",
             "color_2": "#6f8a68"
           }
@@ -51,7 +51,7 @@
             "image": "shopify://shop_images/1_bc1faa82-9301-48bb-9313-aaaf7513ac08.jpg",
             "title": "Colour Care",
             "subtitle": "For blonde & coloured hair",
-            "link": "",
+            "link": "shopify://collections/colour-care",
             "color_1": "#c9b98f",
             "color_2": "#a8895a"
           }
@@ -62,7 +62,7 @@
             "image": "shopify://shop_images/4.jpg",
             "title": "Curl Control & Smooth",
             "subtitle": "For curls & anti-frizz",
-            "link": "",
+            "link": "shopify://collections/curl-control-and-smooth",
             "color_1": "#b0a8c4",
             "color_2": "#8574a8"
           }
