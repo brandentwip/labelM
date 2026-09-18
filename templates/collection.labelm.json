@@ -11,26 +11,30 @@
   "sections": {
     "main": {
       "type": "labelm-collection",
+      "custom_css": [
+        "button.lm-wishlist {display: none;}"
+      ],
       "settings": {
         "eyebrow": "Haircare",
         "title": "Collection",
         "description": "",
-        "hero_image": "",
         "show_breadcrumbs": true,
         "show_vendor": false,
         "show_rating": true,
         "badge_text": "BESTSELLER",
         "badge_limit": 3,
         "products_per_page": 12,
-        "navy": "#161A24",
-        "gold": "#C9A961",
-        "gold_dark": "#A8874A",
-        "cream": "#F7F4EE",
-        "ink": "#1A1A1A",
-        "muted": "#8A8580",
-        "line": "#E8E3D8"
+        "navy": "#161a24",
+        "gold": "#c9a961",
+        "gold_dark": "#a8874a",
+        "cream": "#f7f4ee",
+        "ink": "#1a1a1a",
+        "muted": "#8a8580",
+        "line": "#e8e3d8"
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
