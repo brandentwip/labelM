@@ -12,7 +12,10 @@
     "main": {
       "type": "labelm-collection",
       "custom_css": [
-        "button.lm-wishlist {display: none;}"
+        "button.lm-wishlist {display: none;}",
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}",
+        "a {font-size: 15px;}"
       ],
       "settings": {
         "eyebrow": "Haircare",
