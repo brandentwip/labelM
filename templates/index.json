@@ -11,6 +11,9 @@
   "sections": {
     "labelm_hero": {
       "type": "labelm-hero",
+      "custom_css": [
+        "p {font-size: 15px;}"
+      ],
       "settings": {
         "eyebrow": "FOUNDATIONAL HAIR HEALTH",
         "heading": "Molecular bond\nscience, bottled.",
@@ -75,7 +78,9 @@
         "goal_4"
       ],
       "custom_css": [
-        ".labelm-launch-media {margin-right: 15px;}"
+        ".labelm-launch-media {margin-right: 15px;}",
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}"
       ],
       "settings": {
         "kick": "WHAT ARE YOUR HAIR GOALS?",
@@ -86,7 +91,9 @@
       "type": "labelm-launch-banner",
       "custom_css": [
         ".labelm-launch-section {margin-bottom: 0px;}",
-        ".labelm-launch-media {margin-right: 16px;}"
+        ".labelm-launch-media {margin-right: 16px;}",
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}"
       ],
       "settings": {
         "heading": "M-Plex Bond Technology",
@@ -98,6 +105,10 @@
     },
     "labelm_featured_regime": {
       "type": "labelm-featured-regime",
+      "custom_css": [
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}"
+      ],
       "settings": {
         "kick": "NOURISH & REPAIR — HEALTHY HAIR & SCALP",
         "heading": "Featured regime",
@@ -158,6 +169,10 @@
         "step_4",
         "step_5"
       ],
+      "custom_css": [
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}"
+      ],
       "settings": {
         "kick": "WHAT IS YOUR SIGNATURE STEP-BY-STEP?",
         "heading": "Create your 5-step personalised regime"
@@ -208,6 +223,10 @@
         "cat_2",
         "cat_3",
         "cat_4"
+      ],
+      "custom_css": [
+        "p {font-size: 15px;}",
+        "span,p {font-size: 15px;}"
       ],
       "settings": {
         "kick": "SHOP BY CATEGORY",
