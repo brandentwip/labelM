@@ -168,6 +168,8 @@
     }
   },
   "platform_customizations": {
-    "custom_css": []
+    "custom_css": [
+      "*{font-family: 'PT Sans';}"
+    ]
   }
 }
