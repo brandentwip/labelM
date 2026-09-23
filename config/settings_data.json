@@ -168,9 +168,6 @@
     }
   },
   "platform_customizations": {
-    "custom_css": [
-      "p {font-size: 15px;}",
-      "span,p {font-size: 15px;}"
-    ]
+    "custom_css": []
   }
 }
